@@ -130,27 +130,6 @@ export function renderFeed(el, conversations) {
     </div>`).join("");
 }
 
-export function renderGossip(el, gossip, agentCount) {
-  if (!gossip.items.length) {
-    el.innerHTML = '<p class="hint">No rumours in circulation.</p>';
-    return;
-  }
-  el.innerHTML = `<p class="sub">${gossip.distinct} distinct rumour(s).
-    A rumour mutates as it travels: every retelling raises its distortion
-    count, and may flip it from true to false.</p>` +
-    gossip.items.map((g) => `
-    <div class="rum">
-      <p>${esc(g.sentence)}</p>
-      <div class="meta">
-        <span>${g.carriers}/${agentCount} know it</span>
-        <span>distortion ${g.max_distortion}</span>
-        <span class="${g.went_false ? "false" : ""}">${
-          g.went_false ? "has turned false" : "still true"}</span>
-      </div>
-      <span class="spread"><i style="width:${pct(g.carriers / agentCount)}"></i></span>
-    </div>`).join("");
-}
-
 export function renderCost(el, s) {
   const b = s.budget;
   const tiers = Object.entries(s.decisions_by_tier);

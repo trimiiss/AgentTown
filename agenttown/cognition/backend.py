@@ -64,6 +64,8 @@ class ConverseRequest:
     b_memories: tuple[str, ...]
     a_gossip: tuple[dict, ...] = ()
     prices: dict[str, float] = field(default_factory=dict)
+    election_pending: bool = False
+    candidates: tuple[str, ...] = ()
     prompt: str = ""
 
 

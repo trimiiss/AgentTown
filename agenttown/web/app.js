@@ -1,7 +1,8 @@
 // Wiring: fetch the static town once, then take state over a WebSocket.
 
 import { TownRenderer } from "./render.js";
-import { renderAgent, renderCost, renderFeed, renderGossip } from "./inspector.js";
+import { renderAgent, renderCost, renderFeed } from "./inspector.js";
+import { renderElection, renderRumours } from "./election.js";
 
 const $ = (s) => document.querySelector(s);
 
@@ -60,10 +61,15 @@ function apply(s) {
     <span>llm calls <b>${s.budget.total_calls}</b></span>
     <span>cost <b>$${s.budget.total_usd.toFixed(5)}</b></span>
     <span>cache <b>${Math.round(s.policy_cache.hit_rate * 100)}%</b></span>
+    ${s.election ? `<span>${s.election.closed
+        ? `election: <b>${s.election.result && s.election.result.winner_name
+            ? s.election.result.winner_name.split(" ")[0] : "tied"}</b>`
+        : `vote in <b>${s.election.days_left}d</b>`}</span>` : ""}
     <span class="muted">${tiers}</span>`;
 
   if (activeTab === "feed") renderFeed($("#feed"), s.conversations);
-  if (activeTab === "gossip") renderGossip($("#gossip"), s.gossip, s.agents.length);
+  if (activeTab === "gossip") renderRumours($("#gossip"), s);
+  if (activeTab === "election") renderElection($("#election"), s);
   if (activeTab === "cost") renderCost($("#cost"), s);
   if (activeTab === "agent" && selected) refreshDetail();
 }
@@ -147,7 +153,8 @@ function switchTab(name) {
   }
   if (!latest) return;
   if (name === "feed") renderFeed($("#feed"), latest.conversations);
-  if (name === "gossip") renderGossip($("#gossip"), latest.gossip, latest.agents.length);
+  if (name === "gossip") renderRumours($("#gossip"), latest);
+  if (name === "election") renderElection($("#election"), latest);
   if (name === "cost") renderCost($("#cost"), latest);
   if (name === "agent") refreshDetail();
 }

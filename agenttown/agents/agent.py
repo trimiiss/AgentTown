@@ -111,6 +111,11 @@ class Agent:
             money=float(cfg.economy.starting_money),
             opinion=dict(d.get("opinion", {})),
         )
+        # Where this person started out. Opinions drift from here but are
+        # pulled back toward it, which is what stops a town of 30 saturating
+        # at total polarisation after a week of bad-tempered politics.
+        agent.opinion.setdefault(
+            "lean_anchor", float(agent.opinion.get("political_lean", 0.0)))
         agent.x, agent.y = grid.random_tile_in(agent.home, rng)
         for other, rel in d.get("relationships", {}).items():
             agent.relationships[other] = Relationship(

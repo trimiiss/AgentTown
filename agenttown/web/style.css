@@ -172,3 +172,80 @@ table.cost th { color: var(--muted); font-weight: 500; }
   #side { width: 100%; min-width: 0; height: auto; border-left: 0;
           border-top: 1px solid var(--line); }
 }
+
+/* ------------------------------------------------------------- charts
+   Series and status colours live here as roles, so the palette swaps in
+   one place. These are the validated dark-mode steps for this surface. */
+:root {
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --series-3: #199e70;
+  --status-critical: #d03b3b;
+  --status-good: #0ca30c;
+}
+
+.chart { position: relative; margin: 6px 0 14px; }
+.chart svg { display: block; overflow: visible; }
+
+.chart-legend {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  margin-top: 6px; font-size: 11px; color: var(--muted);
+}
+.chart-legend span, .chart-tip span { display: inline-flex; align-items: center; gap: 5px; }
+.chart-legend i, .chart-tip i {
+  width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: none;
+}
+
+.chart-tip {
+  position: absolute; pointer-events: none; z-index: 5;
+  background: rgba(20, 22, 26, 0.96); border: 1px solid var(--line);
+  border-radius: 5px; padding: 6px 8px; font-size: 11px;
+  display: flex; flex-direction: column; gap: 3px; min-width: 110px;
+}
+.chart-tip b { color: var(--ink); font-weight: 600; }
+
+/* horizontal bars: label, track, value */
+.bar-row {
+  display: grid; grid-template-columns: 96px 1fr auto;
+  gap: 8px; align-items: center; margin-bottom: 5px; font-size: 11px;
+}
+.bar-label { color: var(--muted); overflow: hidden; text-overflow: ellipsis;
+             white-space: nowrap; }
+.bar-track { background: var(--panel-2); height: 12px; border-radius: 3px; }
+.bar-fill {
+  display: block; height: 100%;
+  /* 4px rounded data-end, anchored square to the baseline */
+  border-radius: 0 4px 4px 0;
+}
+.bar-value { font-family: var(--mono); color: var(--ink); min-width: 26px;
+             text-align: right; }
+.bar-value em { font-style: normal; color: var(--status-critical); font-size: 10px; }
+
+/* stat tiles */
+.stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.stat {
+  flex: 1 1 86px; background: var(--panel-2); border: 1px solid var(--line);
+  border-radius: 6px; padding: 8px 10px; display: flex; flex-direction: column;
+}
+.stat b { font-size: 19px; font-family: var(--mono); color: var(--accent);
+          font-weight: 600; line-height: 1.1; }
+.stat span { font-size: 10px; color: var(--muted); text-transform: uppercase;
+             letter-spacing: 0.05em; margin-top: 2px; }
+.stat i { font-style: normal; font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* candidate cards */
+.cand {
+  display: flex; gap: 9px; align-items: flex-start;
+  border: 1px solid var(--line); border-left-width: 3px;
+  border-radius: 6px; padding: 8px 10px; margin-bottom: 7px;
+}
+.cand h4 { margin: 0 0 2px; font-size: 13px; }
+.cand p { margin: 0; font-size: 11px; color: var(--muted); }
+.cand .lean { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+
+table.data { width: 100%; border-collapse: collapse; font-size: 11px;
+             font-family: var(--mono); margin-top: 8px; }
+table.data th, table.data td { padding: 3px 6px; text-align: right;
+             border-bottom: 1px solid var(--line); }
+table.data th:first-child, table.data td:first-child { text-align: left; }
+table.data th { color: var(--muted); font-weight: 500; }

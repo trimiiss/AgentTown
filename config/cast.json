@@ -1,0 +1,1452 @@
+{
+ "agents": [
+  {
+   "id": "agim",
+   "name": "Agim Berisha",
+   "age": 54,
+   "occupation": "baker",
+   "traits": [
+    "gruff",
+    "proud of his bread",
+    "awake before dawn",
+    "hates waste"
+   ],
+   "speech_tics": [
+    "calls people 'bre'",
+    "brings every subject back to the price of flour"
+   ],
+   "backstory": "Agim has run the furra on Çarshia for twenty-six years, as his father did before him. He measures the town by how much bread it buys on a Tuesday.",
+   "home": "home_berisha",
+   "work": "furra",
+   "vendor_of": [
+    "bread"
+   ],
+   "work_hours": [
+    4,
+    13
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.1
+   },
+   "relationships": {
+    "luljeta": {
+     "affinity": 0.85,
+     "familiarity": 1.0,
+     "tag": "wife"
+    },
+    "arben": {
+     "affinity": 0.3,
+     "familiarity": 0.8,
+     "tag": "neighbour on the street"
+    },
+    "fatime": {
+     "affinity": 0.5,
+     "familiarity": 0.9,
+     "tag": "oldest customer"
+    },
+    "fatos_sok": {
+     "affinity": 0.8,
+     "familiarity": 0.85,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "luljeta",
+   "name": "Luljeta Berisha",
+   "age": 49,
+   "occupation": "nurse",
+   "traits": [
+    "warm",
+    "practical",
+    "quietly exhausted",
+    "remembers everyone's ailments"
+   ],
+   "speech_tics": [
+    "asks after your health before anything else",
+    "says 'ngadalë' when people rush"
+   ],
+   "backstory": "Luljeta is the only nurse at the ambulanca and has been for eleven years. She knows which houses have an old person who will not come in on their own.",
+   "home": "home_berisha",
+   "work": "ambulanca",
+   "vendor_of": [
+    "medicine"
+   ],
+   "work_hours": [
+    8,
+    16
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.1
+   },
+   "relationships": {
+    "agim": {
+     "affinity": 0.85,
+     "familiarity": 1.0,
+     "tag": "husband"
+    },
+    "fatime": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "patient"
+    },
+    "drita": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "friend"
+    },
+    "fatos_sok": {
+     "affinity": 0.68,
+     "familiarity": 0.98,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "arben",
+   "name": "Arben Krasniqi",
+   "age": 33,
+   "occupation": "cafe_owner",
+   "traits": [
+    "talkative",
+    "knows everything first",
+    "restless",
+    "follows politics closely"
+   ],
+   "speech_tics": [
+    "opens with 'a ke marrë vesh?'",
+    "never finishes a coffee"
+   ],
+   "backstory": "Arben came back from four years in Germany and opened the kafiteria with that money. He treats the room as a newspaper he edits by talking.",
+   "home": "home_krasniqi",
+   "work": "kafiteria",
+   "vendor_of": [
+    "coffee"
+   ],
+   "work_hours": [
+    7,
+    20
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.6
+   },
+   "relationships": {
+    "shpend": {
+     "affinity": 0.7,
+     "familiarity": 1.0,
+     "tag": "brother"
+    },
+    "blerim": {
+     "affinity": -0.2,
+     "familiarity": 0.7,
+     "tag": "argues with him about the komuna"
+    },
+    "agim": {
+     "affinity": 0.3,
+     "familiarity": 0.8,
+     "tag": "neighbour on the street"
+    }
+   }
+  },
+  {
+   "id": "shpend",
+   "name": "Shpend Krasniqi",
+   "age": 37,
+   "occupation": "shopkeeper",
+   "traits": [
+    "dry",
+    "patient",
+    "keeps a ledger of who owes him",
+    "dislikes crowds"
+   ],
+   "speech_tics": [
+    "answers questions with a number",
+    "mutters about the generator"
+   ],
+   "backstory": "Shpend keeps the dyqani at the east end of Çarshia, where the town buys cigarettes and everything it forgot. He lets half the street run a tab and never mentions it.",
+   "home": "home_krasniqi",
+   "work": "dyqani",
+   "vendor_of": [
+    "cigarettes"
+   ],
+   "work_hours": [
+    8,
+    20
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.0
+   },
+   "relationships": {
+    "arben": {
+     "affinity": 0.7,
+     "familiarity": 1.0,
+     "tag": "brother"
+    },
+    "vlora": {
+     "affinity": 0.2,
+     "familiarity": 0.5,
+     "tag": "buys sweets on credit"
+    }
+   }
+  },
+  {
+   "id": "fatime",
+   "name": "Fatime Gashi",
+   "age": 61,
+   "occupation": "retired",
+   "traits": [
+    "devout",
+    "incurably curious",
+    "generous with food",
+    "forgets nothing"
+   ],
+   "speech_tics": [
+    "blesses and scolds in the same sentence",
+    "says 'ani, ani' while disagreeing"
+   ],
+   "backstory": "Fatime buried her husband six years ago and has walked the same loop of Çarshia every morning since. Her sons send money from Switzerland and almost never call.",
+   "home": "home_gashi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.3
+   },
+   "relationships": {
+    "agim": {
+     "affinity": 0.5,
+     "familiarity": 0.9,
+     "tag": "buys bread from him daily"
+    },
+    "luljeta": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "her nurse"
+    },
+    "nikolla": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "old schoolmate"
+    },
+    "donika_byt": {
+     "affinity": 0.7,
+     "familiarity": 0.81,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "blerim",
+   "name": "Blerim Morina",
+   "age": 41,
+   "occupation": "clerk",
+   "traits": [
+    "cautious",
+    "fond of procedure",
+    "quietly ambitious",
+    "avoids taking sides out loud"
+   ],
+   "speech_tics": [
+    "says 'sipas rregullës'",
+    "writes things down in front of you"
+   ],
+   "backstory": "Blerim stamps documents at the komuna and knows which ones matter. He has wanted the director's office for six years and has never once said so.",
+   "home": "home_morina",
+   "work": "komuna",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    16
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.2
+   },
+   "relationships": {
+    "arben": {
+     "affinity": -0.2,
+     "familiarity": 0.7,
+     "tag": "argues with him about the komuna"
+    },
+    "drita": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "signs her school's paperwork"
+    },
+    "valbona_mor": {
+     "affinity": 0.76,
+     "familiarity": 0.94,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "drita",
+   "name": "Drita Hoxha",
+   "age": 28,
+   "occupation": "teacher",
+   "traits": [
+    "idealistic",
+    "patient with children and not with adults",
+    "reads late",
+    "new in town"
+   ],
+   "speech_tics": [
+    "explains things one step too thoroughly",
+    "apologises before disagreeing"
+   ],
+   "backstory": "Drita took the post at Shkolla Naim Frashëri two years ago and still rents. She is the only person in town who has read the municipal budget.",
+   "home": "home_hoxha",
+   "work": "shkolla",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    14
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.5
+   },
+   "relationships": {
+    "vlora": {
+     "affinity": 0.6,
+     "familiarity": 0.8,
+     "tag": "her best student"
+    },
+    "luljeta": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "friend"
+    },
+    "blerim": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "signs her school's paperwork"
+    },
+    "granit_sha": {
+     "affinity": 0.64,
+     "familiarity": 0.85,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "nikolla",
+   "name": "Nikollë Bytyqi",
+   "age": 67,
+   "occupation": "priest",
+   "traits": [
+    "quiet",
+    "very long memory",
+    "walks slowly on purpose",
+    "kind to difficult people"
+   ],
+   "speech_tics": [
+    "leaves a pause before answering",
+    "refers to events by the year they happened"
+   ],
+   "backstory": "Nikollë keeps the small Catholic church at the south end, where perhaps thirty families come. He has outlived two of the town's governments and mentions neither.",
+   "home": "home_bytyqi",
+   "work": "kisha",
+   "vendor_of": [],
+   "work_hours": [
+    9,
+    12
+   ],
+   "faith": "catholic",
+   "opinion": {
+    "political_lean": -0.2
+   },
+   "relationships": {
+    "fatime": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "old schoolmate"
+    },
+    "agim": {
+     "affinity": 0.3,
+     "familiarity": 0.6,
+     "tag": "buys bread from him"
+    },
+    "lumturie_kra": {
+     "affinity": 0.77,
+     "familiarity": 0.96,
+     "tag": "lives in the same house"
+    },
+    "donika_sha": {
+     "affinity": 0.38,
+     "familiarity": 1.0,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "vlora",
+   "name": "Vlora Shala",
+   "age": 19,
+   "occupation": "student",
+   "traits": [
+    "restless",
+    "impatient with the town",
+    "sharp",
+    "always slightly broke"
+   ],
+   "speech_tics": [
+    "says 'po, po' to end conversations",
+    "compares everything to Prishtina"
+   ],
+   "backstory": "Vlora is in her last year at the school and intends to leave for Prishtina the week after. She is the fastest carrier of news in town and knows it.",
+   "home": "home_shala",
+   "work": "shkolla",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    14
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.4
+   },
+   "relationships": {
+    "drita": {
+     "affinity": 0.6,
+     "familiarity": 0.8,
+     "tag": "her teacher"
+    },
+    "shpend": {
+     "affinity": 0.2,
+     "familiarity": 0.5,
+     "tag": "buys sweets on credit"
+    },
+    "petrit_kra2": {
+     "affinity": 0.67,
+     "familiarity": 0.93,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "besnik",
+   "name": "Besnik Zariqi",
+   "age": 45,
+   "occupation": "mechanic",
+   "traits": [
+    "blunt",
+    "can fix anything",
+    "always owed money",
+    "loud in company"
+   ],
+   "speech_tics": [
+    "diagnoses your car unprompted",
+    "swears mildly and apologises"
+   ],
+   "backstory": "Besnik keeps half the cars in town running out of a yard behind the pazar. He is owed money by most of his customers and has never once sent a bill.",
+   "home": "home_zariqi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    18
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.3
+   },
+   "relationships": {
+    "shpend": {
+     "affinity": 0.4,
+     "familiarity": 0.8,
+     "tag": "runs a tab with him"
+    },
+    "arben": {
+     "affinity": 0.5,
+     "familiarity": 0.7,
+     "tag": "drinks coffee with him daily"
+    },
+    "shqipe_sok": {
+     "affinity": 0.76,
+     "familiarity": 0.91,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "teuta",
+   "name": "Teuta Dervishi",
+   "age": 52,
+   "occupation": "seamstress",
+   "traits": [
+    "observant",
+    "discreet",
+    "keeps what she is told",
+    "works with her hands"
+   ],
+   "speech_tics": [
+    "answers a question with a question",
+    "notices what you are wearing"
+   ],
+   "backstory": "Teuta has altered clothes for this town for thirty years and knows which families are struggling before they do. She has never repeated any of it.",
+   "home": "home_dervishi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    9,
+    17
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.2
+   },
+   "relationships": {
+    "fatime": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "oldest friend"
+    },
+    "luljeta": {
+     "affinity": 0.5,
+     "familiarity": 0.7,
+     "tag": "trusts her"
+    },
+    "petrit_kra": {
+     "affinity": 0.49,
+     "familiarity": 0.91,
+     "tag": "lives in the same house"
+    },
+    "sokol_zar": {
+     "affinity": 0.74,
+     "familiarity": 0.9,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "ilir",
+   "name": "Ilir Rexhepi",
+   "age": 24,
+   "occupation": "unemployed",
+   "traits": [
+    "restless",
+    "talks about leaving again",
+    "generous when flush",
+    "quick to argue"
+   ],
+   "speech_tics": [
+    "compares everything to how it is done in Germany",
+    "says 'here, nothing moves'"
+   ],
+   "backstory": "Ilir came back from two years on a building site near Stuttgart with money that is now almost gone. He has not decided whether this is a visit or a return.",
+   "home": "home_rexhepi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.5
+   },
+   "relationships": {
+    "vlora": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "the only other person who wants out"
+    },
+    "besnik": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "owes him for the car"
+    },
+    "arben": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "both came back from abroad"
+    },
+    "bekim_gas": {
+     "affinity": 0.65,
+     "familiarity": 0.95,
+     "tag": "lives in the same house"
+    }
+   }
+  },
+  {
+   "id": "donika_hox",
+   "name": "Donika Hoxha",
+   "age": 17,
+   "occupation": "student",
+   "traits": [
+    "never stops working",
+    "cheerful on no evidence",
+    "endlessly patient"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Donika raised four children in this house and now rattles around it.",
+   "home": "home_ademi",
+   "work": "shkolla",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    14
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.22
+   },
+   "relationships": {
+    "valon_sok": {
+     "affinity": 0.59,
+     "familiarity": 0.93,
+     "tag": "lives in the same house"
+    },
+    "burim_gas": {
+     "affinity": 0.77,
+     "familiarity": 0.88,
+     "tag": "lives in the same house"
+    },
+    "sokol_zar": {
+     "affinity": -0.07,
+     "familiarity": 0.4,
+     "tag": "owes him money"
+    },
+    "burim_rex": {
+     "affinity": 0.29,
+     "familiarity": 0.18,
+     "tag": "old schoolmate"
+    },
+    "blerim": {
+     "affinity": -0.03,
+     "familiarity": 0.12,
+     "tag": "distant relative"
+    }
+   }
+  },
+  {
+   "id": "petrit_sha",
+   "name": "Petrit Shala",
+   "age": 35,
+   "occupation": "housewife",
+   "traits": [
+    "sharp about money",
+    "complains constantly and means none of it",
+    "kind to children"
+   ],
+   "speech_tics": [
+    "trails off mid-sentence"
+   ],
+   "backstory": "Petrit is the one the neighbours call when something needs carrying.",
+   "home": "home_kelmendi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.39
+   },
+   "relationships": {
+    "albana_der": {
+     "affinity": 0.57,
+     "familiarity": 0.85,
+     "tag": "lives in the same house"
+    },
+    "shpend": {
+     "affinity": -0.17,
+     "familiarity": 0.11,
+     "tag": "owes him money"
+    },
+    "burim_rex": {
+     "affinity": 0.07,
+     "familiarity": 0.31,
+     "tag": "drinks coffee with him"
+    },
+    "agim": {
+     "affinity": 0.02,
+     "familiarity": 0.2,
+     "tag": "drinks coffee with him"
+    }
+   }
+  },
+  {
+   "id": "hajrije_gas",
+   "name": "Hajrije Gashi",
+   "age": 67,
+   "occupation": "pensioner",
+   "traits": [
+    "superstitious",
+    "quick to take offence",
+    "proud"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Hajrije raised four children in this house and now rattles around it.",
+   "home": "home_sokoli",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.39
+   },
+   "relationships": {
+    "burim_rex": {
+     "affinity": 0.41,
+     "familiarity": 0.88,
+     "tag": "lives in the same house"
+    },
+    "arben": {
+     "affinity": -0.16,
+     "familiarity": 0.28,
+     "tag": "distant relative"
+    },
+    "fatos_sok": {
+     "affinity": 0.16,
+     "familiarity": 0.43,
+     "tag": "drinks coffee with him"
+    },
+    "drita": {
+     "affinity": -0.1,
+     "familiarity": 0.57,
+     "tag": "does not speak to him much"
+    }
+   }
+  },
+  {
+   "id": "valon_sok",
+   "name": "Valon Sokoli",
+   "age": 53,
+   "occupation": "driver",
+   "traits": [
+    "suspicious of officials",
+    "sentimental about the old days",
+    "complains constantly and means none of it"
+   ],
+   "speech_tics": [
+    "trails off mid-sentence"
+   ],
+   "backstory": "Valon raised four children in this house and now rattles around it.",
+   "home": "home_ademi",
+   "work": "carshia",
+   "vendor_of": [],
+   "work_hours": [
+    7,
+    19
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.61
+   },
+   "relationships": {
+    "donika_hox": {
+     "affinity": 0.64,
+     "familiarity": 0.81,
+     "tag": "lives in the same house"
+    },
+    "burim_gas": {
+     "affinity": 0.42,
+     "familiarity": 0.81,
+     "tag": "lives in the same house"
+    },
+    "lumturie_kra": {
+     "affinity": 0.46,
+     "familiarity": 0.46,
+     "tag": "owes him money"
+    },
+    "petrit_sha": {
+     "affinity": 0.29,
+     "familiarity": 0.56,
+     "tag": "cousin"
+    },
+    "shpend": {
+     "affinity": -0.08,
+     "familiarity": 0.48,
+     "tag": "drinks coffee with him"
+    }
+   }
+  },
+  {
+   "id": "lumturie_kra",
+   "name": "Lumturie Krasniqi",
+   "age": 48,
+   "occupation": "mechanic",
+   "traits": [
+    "unbothered by anything",
+    "never stops working",
+    "sentimental about the old days"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Lumturie has never been further than Prishtina and sees no reason to go.",
+   "home": "home_bytyqi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    18
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.11
+   },
+   "relationships": {
+    "nikolla": {
+     "affinity": 0.77,
+     "familiarity": 0.9,
+     "tag": "lives in the same house"
+    },
+    "donika_sha": {
+     "affinity": 0.71,
+     "familiarity": 0.97,
+     "tag": "lives in the same house"
+    },
+    "vlora": {
+     "affinity": 0.38,
+     "familiarity": 0.47,
+     "tag": "distant relative"
+    },
+    "valbona_mor": {
+     "affinity": 0.03,
+     "familiarity": 0.12,
+     "tag": "owes him money"
+    },
+    "ilir": {
+     "affinity": 0.29,
+     "familiarity": 0.3,
+     "tag": "cousin"
+    }
+   }
+  },
+  {
+   "id": "petrit_kra",
+   "name": "Petrit Krasniqi",
+   "age": 61,
+   "occupation": "waiter",
+   "traits": [
+    "cheerful on no evidence",
+    "endlessly patient",
+    "forgets names and not faces"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Petrit has worked since the age of fourteen and does not expect to stop.",
+   "home": "home_dervishi",
+   "work": "kafiteria",
+   "vendor_of": [],
+   "work_hours": [
+    9,
+    21
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.06
+   },
+   "relationships": {
+    "teuta": {
+     "affinity": 0.78,
+     "familiarity": 0.8,
+     "tag": "lives in the same house"
+    },
+    "sokol_zar": {
+     "affinity": 0.76,
+     "familiarity": 0.83,
+     "tag": "lives in the same house"
+    },
+    "burim_rex": {
+     "affinity": 0.2,
+     "familiarity": 0.39,
+     "tag": "drinks coffee with him"
+    },
+    "vlora": {
+     "affinity": -0.25,
+     "familiarity": 0.33,
+     "tag": "cousin"
+    }
+   }
+  },
+  {
+   "id": "donika_byt",
+   "name": "Donika Bytyqi",
+   "age": 69,
+   "occupation": "pensioner",
+   "traits": [
+    "never stops working",
+    "stubborn",
+    "cheerful on no evidence"
+   ],
+   "speech_tics": [
+    "answers before you finish"
+   ],
+   "backstory": "Donika took over the family plot and has been losing money on it politely ever since.",
+   "home": "home_gashi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.38
+   },
+   "relationships": {
+    "fatime": {
+     "affinity": 0.75,
+     "familiarity": 0.85,
+     "tag": "lives in the same house"
+    },
+    "petrit_kra": {
+     "affinity": -0.18,
+     "familiarity": 0.36,
+     "tag": "drinks coffee with him"
+    },
+    "besnik": {
+     "affinity": 0.2,
+     "familiarity": 0.11,
+     "tag": "does not speak to him much"
+    }
+   }
+  },
+  {
+   "id": "granit_sha",
+   "name": "Granit Shala",
+   "age": 18,
+   "occupation": "student",
+   "traits": [
+    "unbothered by anything",
+    "proud",
+    "takes everything personally"
+   ],
+   "speech_tics": [
+    "says 'inshallah' about the weather"
+   ],
+   "backstory": "Granit has a brother in Germany who sends money and never visits.",
+   "home": "home_hoxha",
+   "work": "shkolla",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    14
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.06
+   },
+   "relationships": {
+    "drita": {
+     "affinity": 0.45,
+     "familiarity": 0.94,
+     "tag": "lives in the same house"
+    },
+    "luljeta": {
+     "affinity": -0.2,
+     "familiarity": 0.35,
+     "tag": "old schoolmate"
+    },
+    "petrit_kra2": {
+     "affinity": 0.5,
+     "familiarity": 0.3,
+     "tag": "cousin"
+    },
+    "burim_gas": {
+     "affinity": -0.24,
+     "familiarity": 0.54,
+     "tag": "cousin"
+    }
+   }
+  },
+  {
+   "id": "albana_der",
+   "name": "Albana Dervishi",
+   "age": 29,
+   "occupation": "driver",
+   "traits": [
+    "kind to children",
+    "quick to take offence",
+    "suspicious of officials"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Albana raised four children in this house and now rattles around it.",
+   "home": "home_kelmendi",
+   "work": "carshia",
+   "vendor_of": [],
+   "work_hours": [
+    7,
+    19
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.43
+   },
+   "relationships": {
+    "petrit_sha": {
+     "affinity": 0.79,
+     "familiarity": 0.82,
+     "tag": "lives in the same house"
+    },
+    "teuta": {
+     "affinity": -0.18,
+     "familiarity": 0.48,
+     "tag": "cousin"
+    },
+    "fatos_sok": {
+     "affinity": 0.01,
+     "familiarity": 0.48,
+     "tag": "distant relative"
+    },
+    "donika_sha": {
+     "affinity": 0.32,
+     "familiarity": 0.11,
+     "tag": "does not speak to him much"
+    }
+   }
+  },
+  {
+   "id": "valbona_mor",
+   "name": "Valbona Morina",
+   "age": 36,
+   "occupation": "seamstress",
+   "traits": [
+    "stubborn",
+    "generous with what little there is",
+    "sharp about money"
+   ],
+   "speech_tics": [
+    "speaks very quietly"
+   ],
+   "backstory": "Valbona is the one the neighbours call when something needs carrying.",
+   "home": "home_morina",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    9,
+    17
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.36
+   },
+   "relationships": {
+    "blerim": {
+     "affinity": 0.4,
+     "familiarity": 0.95,
+     "tag": "lives in the same house"
+    },
+    "arben": {
+     "affinity": 0.05,
+     "familiarity": 0.51,
+     "tag": "cousin"
+    },
+    "albana_der": {
+     "affinity": -0.1,
+     "familiarity": 0.38,
+     "tag": "drinks coffee with him"
+    },
+    "shqipe_sok": {
+     "affinity": -0.18,
+     "familiarity": 0.51,
+     "tag": "distant relative"
+    }
+   }
+  },
+  {
+   "id": "bekim_gas",
+   "name": "Bekim Gashi",
+   "age": 40,
+   "occupation": "farmer",
+   "traits": [
+    "cheerful on no evidence",
+    "forgets names and not faces",
+    "unbothered by anything"
+   ],
+   "speech_tics": [
+    "ends every point with a shrug"
+   ],
+   "backstory": "Bekim came back from abroad with savings that lasted two winters.",
+   "home": "home_rexhepi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    6,
+    15
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.21
+   },
+   "relationships": {
+    "ilir": {
+     "affinity": 0.4,
+     "familiarity": 0.86,
+     "tag": "lives in the same house"
+    },
+    "agim": {
+     "affinity": 0.43,
+     "familiarity": 0.37,
+     "tag": "old schoolmate"
+    },
+    "besnik": {
+     "affinity": 0.42,
+     "familiarity": 0.25,
+     "tag": "old schoolmate"
+    },
+    "nikolla": {
+     "affinity": 0.44,
+     "familiarity": 0.34,
+     "tag": "drinks coffee with him"
+    }
+   }
+  },
+  {
+   "id": "petrit_kra2",
+   "name": "Petrit Krasniqi",
+   "age": 38,
+   "occupation": "mechanic",
+   "traits": [
+    "kind to children",
+    "stubborn",
+    "endlessly patient"
+   ],
+   "speech_tics": [
+    "repeats your name back to you"
+   ],
+   "backstory": "Petrit has lived on this street since before the school was rebuilt, and intends to die on it.",
+   "home": "home_shala",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    18
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.01
+   },
+   "relationships": {
+    "vlora": {
+     "affinity": 0.76,
+     "familiarity": 0.82,
+     "tag": "lives in the same house"
+    },
+    "burim_gas": {
+     "affinity": 0.47,
+     "familiarity": 0.28,
+     "tag": "old schoolmate"
+    },
+    "teuta": {
+     "affinity": 0.49,
+     "familiarity": 0.37,
+     "tag": "neighbour"
+    },
+    "valon_sok": {
+     "affinity": -0.11,
+     "familiarity": 0.53,
+     "tag": "distant relative"
+    }
+   }
+  },
+  {
+   "id": "burim_rex",
+   "name": "Burim Rexhepi",
+   "age": 25,
+   "occupation": "farmer",
+   "traits": [
+    "superstitious",
+    "sharp about money",
+    "stubborn"
+   ],
+   "speech_tics": [
+    "laughs at the end of bad news"
+   ],
+   "backstory": "Burim took over the family plot and has been losing money on it politely ever since.",
+   "home": "home_sokoli",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    6,
+    15
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.11
+   },
+   "relationships": {
+    "hajrije_gas": {
+     "affinity": 0.56,
+     "familiarity": 0.84,
+     "tag": "lives in the same house"
+    },
+    "agim": {
+     "affinity": -0.23,
+     "familiarity": 0.3,
+     "tag": "neighbour"
+    },
+    "sokol_zar": {
+     "affinity": 0.31,
+     "familiarity": 0.27,
+     "tag": "owes him money"
+    },
+    "donika_byt": {
+     "affinity": 0.21,
+     "familiarity": 0.23,
+     "tag": "owes him money"
+    }
+   }
+  },
+  {
+   "id": "shqipe_sok",
+   "name": "Shqipe Sokoli",
+   "age": 58,
+   "occupation": "unemployed",
+   "traits": [
+    "keeps to a routine",
+    "quick to take offence",
+    "complains constantly and means none of it"
+   ],
+   "speech_tics": [
+    "laughs at the end of bad news"
+   ],
+   "backstory": "Shqipe raised four children in this house and now rattles around it.",
+   "home": "home_zariqi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.66
+   },
+   "relationships": {
+    "besnik": {
+     "affinity": 0.65,
+     "familiarity": 0.85,
+     "tag": "lives in the same house"
+    },
+    "burim_gas": {
+     "affinity": 0.5,
+     "familiarity": 0.12,
+     "tag": "cousin"
+    },
+    "teuta": {
+     "affinity": -0.05,
+     "familiarity": 0.44,
+     "tag": "owes him money"
+    },
+    "petrit_kra": {
+     "affinity": 0.09,
+     "familiarity": 0.59,
+     "tag": "distant relative"
+    }
+   }
+  },
+  {
+   "id": "burim_gas",
+   "name": "Burim Gashi",
+   "age": 60,
+   "occupation": "farmer",
+   "traits": [
+    "keeps to a routine",
+    "cheerful on no evidence",
+    "unbothered by anything"
+   ],
+   "speech_tics": [
+    "trails off mid-sentence"
+   ],
+   "backstory": "Burim has never been further than Prishtina and sees no reason to go.",
+   "home": "home_ademi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    6,
+    15
+   ],
+   "faith": "catholic",
+   "opinion": {
+    "political_lean": -0.17
+   },
+   "relationships": {
+    "donika_hox": {
+     "affinity": 0.55,
+     "familiarity": 0.92,
+     "tag": "lives in the same house"
+    },
+    "valon_sok": {
+     "affinity": 0.56,
+     "familiarity": 0.91,
+     "tag": "lives in the same house"
+    },
+    "bekim_gas": {
+     "affinity": 0.32,
+     "familiarity": 0.57,
+     "tag": "drinks coffee with him"
+    },
+    "arben": {
+     "affinity": 0.29,
+     "familiarity": 0.17,
+     "tag": "drinks coffee with him"
+    },
+    "ilir": {
+     "affinity": 0.11,
+     "familiarity": 0.26,
+     "tag": "cousin"
+    }
+   }
+  },
+  {
+   "id": "fatos_sok",
+   "name": "Fatos Sokoli",
+   "age": 65,
+   "occupation": "pensioner",
+   "traits": [
+    "unbothered by anything",
+    "complains constantly and means none of it",
+    "proud"
+   ],
+   "speech_tics": [
+    "says 'inshallah' about the weather"
+   ],
+   "backstory": "Fatos came back from abroad with savings that lasted two winters.",
+   "home": "home_berisha",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "catholic",
+   "opinion": {
+    "political_lean": -0.1
+   },
+   "relationships": {
+    "agim": {
+     "affinity": 0.79,
+     "familiarity": 0.93,
+     "tag": "lives in the same house"
+    },
+    "luljeta": {
+     "affinity": 0.69,
+     "familiarity": 0.88,
+     "tag": "lives in the same house"
+    },
+    "shqipe_sok": {
+     "affinity": -0.01,
+     "familiarity": 0.19,
+     "tag": "owes him money"
+    },
+    "teuta": {
+     "affinity": -0.14,
+     "familiarity": 0.13,
+     "tag": "drinks coffee with him"
+    },
+    "fatime": {
+     "affinity": 0.57,
+     "familiarity": 0.44,
+     "tag": "owes him money"
+    }
+   }
+  },
+  {
+   "id": "donika_sha",
+   "name": "Donika Shala",
+   "age": 22,
+   "occupation": "housewife",
+   "traits": [
+    "unbothered by anything",
+    "keeps to a routine",
+    "never stops working"
+   ],
+   "speech_tics": [
+    "repeats your name back to you"
+   ],
+   "backstory": "Donika raised four children in this house and now rattles around it.",
+   "home": "home_bytyqi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.32
+   },
+   "relationships": {
+    "nikolla": {
+     "affinity": 0.44,
+     "familiarity": 0.92,
+     "tag": "lives in the same house"
+    },
+    "lumturie_kra": {
+     "affinity": 0.6,
+     "familiarity": 0.97,
+     "tag": "lives in the same house"
+    },
+    "drita": {
+     "affinity": 0.45,
+     "familiarity": 0.22,
+     "tag": "drinks coffee with him"
+    },
+    "petrit_kra2": {
+     "affinity": 0.39,
+     "familiarity": 0.5,
+     "tag": "owes him money"
+    },
+    "ilir": {
+     "affinity": 0.22,
+     "familiarity": 0.29,
+     "tag": "drinks coffee with him"
+    }
+   }
+  },
+  {
+   "id": "sokol_zar",
+   "name": "Sokol Zariqi",
+   "age": 28,
+   "occupation": "labourer",
+   "traits": [
+    "quick to take offence",
+    "takes everything personally",
+    "stubborn"
+   ],
+   "speech_tics": [
+    "repeats your name back to you"
+   ],
+   "backstory": "Sokol has lived on this street since before the school was rebuilt, and intends to die on it.",
+   "home": "home_dervishi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    7,
+    17
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.65
+   },
+   "relationships": {
+    "teuta": {
+     "affinity": 0.53,
+     "familiarity": 0.97,
+     "tag": "lives in the same house"
+    },
+    "petrit_kra": {
+     "affinity": 0.73,
+     "familiarity": 0.88,
+     "tag": "lives in the same house"
+    },
+    "hajrije_gas": {
+     "affinity": 0.27,
+     "familiarity": 0.17,
+     "tag": "old schoolmate"
+    },
+    "bekim_gas": {
+     "affinity": 0.27,
+     "familiarity": 0.3,
+     "tag": "drinks coffee with him"
+    },
+    "lumturie_kra": {
+     "affinity": -0.03,
+     "familiarity": 0.41,
+     "tag": "distant relative"
+    }
+   }
+  }
+ ]
+}

@@ -23,13 +23,24 @@ def test_no_negative_balances(sim, day):
 
 
 def test_purchase_moves_money_rather_than_creating_it(sim):
+    """Buyer + vendor + the declared sink must account for every cent.
+
+    A sale is not closed-system: a share of it leaves town as cost of goods,
+    so the invariant is conservation across the pair *and* `sunk`, not across
+    the pair alone.
+    """
     buyer = sim.agents["fatime"]
     vendor = sim.agents["agim"]          # the baker receives bread money
-    before = buyer.money + vendor.money
     price = sim.economy.price("bread")
+    before = buyer.money + vendor.money
+    sunk_before = sim.economy.sunk
+
     assert sim.economy.purchase(buyer, "bread", 0, sim.agents) is True
-    assert abs((buyer.money + vendor.money) - before) < 1e-9
-    assert abs(vendor.money - (before - buyer.money)) < 1e-9
+
+    moved = sim.economy.sunk - sunk_before
+    assert abs((buyer.money + vendor.money + moved) - before) < 1e-9
+    assert abs(buyer.money - (before - vendor.money - moved)) < 1e-9
+    assert abs(moved - price * sim.economy.cost_of_goods) < 1e-9
     assert buyer.inventory["bread"] == 1
     assert price > 0
 

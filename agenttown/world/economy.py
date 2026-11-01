@@ -39,6 +39,8 @@ class Economy:
     ledger: list[Transaction] = field(default_factory=list)
     sourced: float = 0.0      # money created out of nothing (wages, remittances)
     sunk: float = 0.0         # money destroyed
+    #: share of each sale that leaves town as cost of goods
+    cost_of_goods: float = 0.55
     refusals: int = 0
     price_history: list[dict] = field(default_factory=list)
 
@@ -72,9 +74,14 @@ class Economy:
         return rate
 
     def charge_daily_costs(self, agent, tick: int, household: float,
-                           vendor: float) -> float:
-        """A declared sink: the standing costs of being alive and of trading."""
+                           vendor: float, wealth_rate: float = 0.0) -> float:
+        """A declared sink: the standing costs of being alive and of trading.
+
+        The wealth-proportional term is what makes this converge: without it a
+        vendor with a positive daily margin grows linearly for ever.
+        """
         amount = household + (vendor if agent.vendor_of else 0.0)
+        amount += wealth_rate * max(0.0, agent.money)
         amount = min(amount, max(0.0, agent.money))
         if amount <= 0.0:
             return 0.0
@@ -115,7 +122,29 @@ class Economy:
         buyer.inventory[item] = buyer.inventory.get(item, 0) + 1
         self.ledger.append(Transaction(tick, "purchase", buyer.id, vendor_id,
                                        item, cost))
+        # Cost of goods: a share of every sale leaves town to the wholesaler.
+        # It has to be per-sale rather than a flat daily charge, or a vendor
+        # inflates as soon as the town grows enough customers.
+        self._sink_cost_of_goods(vendor_id, cost, tick, vendor_of, buyer.id)
         return True
+
+    def _sink_cost_of_goods(self, vendor_id: str | None, sale: float, tick: int,
+                            vendor_of: dict[str, object] | None,
+                            buyer_id: str = "") -> None:
+        if not vendor_id or self.cost_of_goods <= 0.0:
+            return
+        if vendor_id == buyer_id:
+            return      # taking a loaf off your own shelf is not a sale
+        vendor = (vendor_of or {}).get(vendor_id)
+        if vendor is None:
+            return
+        amount = min(sale * self.cost_of_goods, max(0.0, vendor.money))
+        if amount <= 0.0:
+            return
+        vendor.money -= amount
+        self.sunk += amount
+        self.ledger.append(Transaction(tick, "cost_of_goods", vendor_id, None,
+                                       None, amount, "to the wholesaler"))
 
     def consume(self, agent, item: str) -> bool:
         have = agent.inventory.get(item, 0)

@@ -58,6 +58,8 @@ class EconomyCfg:
     daily_household_cost: float
     daily_vendor_cost: float
     weekly_support: float
+    cost_of_goods: float
+    wealth_spend_rate: float
 
 
 @dataclass(frozen=True)
@@ -70,6 +72,7 @@ class ConversationCfg:
 @dataclass(frozen=True)
 class CognitionCfg:
     backend: str
+    model: str
     budget: dict[str, int]
 
 
@@ -114,10 +117,13 @@ class Config:
                 daily_household_cost=float(econ["daily_household_cost"]),
                 daily_vendor_cost=float(econ["daily_vendor_cost"]),
                 weekly_support=float(econ["weekly_support"]),
+                cost_of_goods=float(econ["cost_of_goods"]),
+                wealth_spend_rate=float(econ["wealth_spend_rate"]),
             ),
             conversation=ConversationCfg(**raw["conversation"]),
             cognition=CognitionCfg(
                 backend=raw["cognition"]["backend"],
+                model=raw["cognition"].get("model", "claude-haiku-5-5"),
                 budget=dict(raw["cognition"]["budget"]),
             ),
             recorder=RecorderCfg(**raw["recorder"]),

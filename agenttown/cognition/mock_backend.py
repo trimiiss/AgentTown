@@ -254,6 +254,12 @@ class MockBackend:
     def _pick_topic(self, req: ConverseRequest, rng) -> str:
         a, b = req.a, req.b
         joined = " ".join(req.a_memories).lower()
+        # a pending election crowds out everything else, and more so when one
+        # of the two is standing in it
+        if req.election_pending:
+            standing = a.id in req.candidates or b.id in req.candidates
+            if rng.random() < (0.85 if standing else 0.5):
+                return "politics"
         if req.a_gossip and rng.random() < 0.70:
             return "gossip"
         if any(w in joined for w in MONEY_WORDS) and rng.random() < 0.80:

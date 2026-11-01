@@ -35,6 +35,13 @@ BUILDINGS = [
     ("home_hoxha",    "Shtëpia e Hoxhës",     "home",        19, 31, 25, 37, (22, 31)),
     ("home_bytyqi",   "Shtëpia e Bytyqit",    "home",        34, 31, 40, 37, (37, 31)),
     ("home_shala",    "Shtëpia e Shalës",     "home",        43, 31, 49, 37, (46, 31)),
+    # A second wave of housing, so the town can hold 20-50 residents.
+    ("home_zariqi",   "Shtëpia e Zariqit",    "home",         1,  2,  7,  7, ( 4,  7)),
+    ("home_dervishi", "Shtëpia e Dervishit",  "home",        25,  2, 31,  7, (28,  7)),
+    ("home_rexhepi",  "Shtëpia e Rexhepit",   "home",        51,  2, 57,  7, (54,  7)),
+    ("home_kelmendi", "Shtëpia e Kelmendit",  "home",         1, 31,  7, 37, ( 4, 31)),
+    ("home_ademi",    "Shtëpia e Ademit",     "home",        27, 31, 33, 37, (30, 31)),
+    ("home_sokoli",   "Shtëpia e Sokolit",    "home",        51, 31, 57, 37, (54, 31)),
 ]
 
 # Open areas: walkable grass, no walls. id, name, kind, x0, y0, x1, y1

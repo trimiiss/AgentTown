@@ -33,6 +33,7 @@ from ..world import objects as aff_mod
 from ..world.economy import Economy
 from ..world.grid import Grid
 from ..world.pathfind import Pathfinder
+from . import election as election_mod
 from . import gossip as gossip_mod
 from .events import Event, EventBus, describe
 from .recorder import Recorder
@@ -45,14 +46,18 @@ VENDOR_AREA = {"bread": "furra", "coffee": "kafiteria",
                "cigarettes": "dyqani", "medicine": "ambulanca"}
 
 
-def make_backend(cfg: Config):
-    """The cognition seam. Add claude/local here; nothing else changes."""
+def make_backend(cfg: Config, fallback: MockBackend):
+    """The cognition seam. This function is the whole switch."""
     name = cfg.cognition.backend
     if name == "mock":
-        return MockBackend(cfg.sim.seed)
+        return fallback
+    if name == "claude":
+        from ..cognition.claude_backend import ClaudeBackend
+        return ClaudeBackend(cfg.sim.seed, fallback=fallback,
+                             model=cfg.cognition.model)
     raise NotImplementedError(
-        f"backend {name!r} is not implemented yet - M3 adds claude and local. "
-        "Set cognition.backend = 'mock' in config/sim.toml."
+        f"backend {name!r} is not implemented - use 'mock' or 'claude'. "
+        "A local llama.cpp/Ollama backend would slot in here too."
     )
 
 
@@ -78,11 +83,20 @@ class Simulation:
 
         vendors = {item: a.id for a in self.agents.values() for item in a.vendor_of}
         self.economy = Economy(prices=dict(cfg.economy.prices),
-                               wages=dict(cfg.economy.wages), vendors=vendors)
+                               wages=dict(cfg.economy.wages), vendors=vendors,
+                               cost_of_goods=cfg.economy.cost_of_goods)
         self.starting_money = self.economy.total_money(self.agents.values())
 
-        self.backend = make_backend(cfg)
+        # Declare what exists, once. Run-constant, so it rides in the cached
+        # prompt prefix instead of being resent on every call - and it is what
+        # stops a real model inventing geography the validator would reject.
+        prompts.set_vocabulary(
+            {a.id: a.name for a in self.grid.areas.values()},
+            aff_mod.PROPOSABLE,
+            {a.id: a.name for a in self.agents.values()})
+
         self.fallback = MockBackend(cfg.sim.seed)
+        self.backend = make_backend(cfg, self.fallback)
         self.budget = Budget(limits=dict(cfg.cognition.budget),
                              ticks_per_day=cfg.sim.ticks_per_day,
                              model=getattr(self.backend, "model", "mock"))
@@ -104,6 +118,8 @@ class Simulation:
         self.pending_speech: list[tuple[int, str, str]] = []
         self._obs_counter: dict[tuple, int] = {}
         self._costs_day = -1
+        self.election: election_mod.Election | None = None
+        self._poll_day = -1
         self._pending_scores: list[tuple[int, str, str]] = []
         self.decisions_by_tier: dict[str, int] = {}
 
@@ -170,6 +186,7 @@ class Simulation:
         for aid in self.order:
             self._tick_agent(self.agents[aid], t, hour, day)
         self._social_phase(t)
+        self._election_phase(t, day, hour)
         self._reflect_phase(t, day)
         self._score_phase(t)
         self.store.commit()
@@ -191,13 +208,68 @@ class Simulation:
             a = self.agents[aid]
             self.economy.charge_daily_costs(
                 a, t, self.cfg.economy.daily_household_cost,
-                self.cfg.economy.daily_vendor_cost)
+                self.cfg.economy.daily_vendor_cost,
+                self.cfg.economy.wealth_spend_rate)
             if payday and self.economy.wage_rate(a.occupation) <= 0.0:
                 amount = self.economy.remit(a, self.cfg.economy.weekly_support,
                                             t, "from the family abroad")
                 self._remember(a, "observation",
                                f"Money came through from abroad, {amount:.2f} euro.",
                                t, importance=6.5)
+
+    # --- the election --------------------------------------------------
+    def _election_pending(self) -> bool:
+        return (self.election is not None
+                and self.election.pending(self.cfg.day_of(max(self.tick, 0))))
+
+    def _rumour_fallout(self, listener: Agent, item) -> None:
+        """A rumour that has turned false costs its subject support."""
+        e = self.election
+        if e is None or e.closed or item.truth_value or not item.subject:
+            return
+        for candidate in e.candidates:
+            if candidate.agent_id == item.subject:
+                election_mod.damage_candidate(listener, candidate)
+                return
+
+    def _election_phase(self, t: int, day: int, hour: int) -> None:
+        e = self.election
+        if e is None or e.closed:
+            return
+
+        if day != self._poll_day:
+            self._poll_day = day
+            e.take_poll(day, [self.agents[i] for i in self.order])
+
+        if e.is_polling_day(day):
+            if hour == 7 and not e.intending:
+                self._call_people_to_vote(t, day, e)
+            return
+
+        if day > e.election_day:
+            result = e.close([self.agents[i] for i in self.order])
+            e.take_poll(day, [self.agents[i] for i in self.order])
+            self.events.inject("announcement", {"text": e.headline(),
+                                                "election_result": result},
+                               "town", t, importance=9.0)
+
+    def _call_people_to_vote(self, t: int, day: int, e) -> None:
+        """Whoever means to vote gets it into their plan for the day."""
+        from ..cognition.schemas import PlanItem
+
+        for aid in self.order:
+            a = self.agents[aid]
+            if not e.will_vote(a, self.cfg.sim.seed):
+                continue
+            e.intending.add(aid)
+            rng = stream(self.cfg.sim.seed, "votehour", aid, day)
+            a.plan.append(PlanItem(start_hour=rng.randint(8, 17),
+                                   affordance="vote", area="komuna",
+                                   note="go and vote"))
+            a.plan.sort(key=lambda p: p.start_hour)
+            a.plan_done = set()
+            self._remember(a, "plan", "I mean to vote at the komuna today.", t,
+                           importance=7.0)
 
     # --- planning ------------------------------------------------------
     def _plan_phase(self, t: int, day: int, hour: int) -> None:
@@ -274,6 +346,12 @@ class Simulation:
             paid = self.economy.purchase(a, spec.purchase, t, self.agents)
         if act.affordance == "eat":
             self.economy.consume(a, "bread")
+        if act.affordance == "vote" and self.election is not None:
+            chosen = self.election.record_vote(a)
+            if chosen is not None:
+                self._remember(a, "observation",
+                               f"I voted for {self.name_of(chosen)}.", t,
+                               importance=8.0, subjects=(chosen,))
         if paid:
             a.needs.apply(spec.needs)
         elif spec.purchase:
@@ -353,7 +431,9 @@ class Simulation:
             clock=self.cfg.clock(t), max_turns=self.cfg.conversation.max_turns,
             a_memories=self._retrieved(a, f"{b.name} {place}", t, 5),
             b_memories=self._retrieved(b, f"{a.name} {place}", t, 5),
-            a_gossip=tuple(share), prices=dict(self.economy.prices))
+            a_gossip=tuple(share), prices=dict(self.economy.prices),
+            election_pending=self._election_pending(),
+            candidates=self.election.candidate_ids if self.election else ())
         req = replace(req, prompt=prompts.converse_prompt(req))
         conv = self.validator.conversation(self._call("converse", req),
                                            (a.id, b.id))
@@ -375,6 +455,12 @@ class Simulation:
         a.rel(b.id).on_conversation(t, conv.sentiment)
         b.rel(a.id).on_conversation(t, conv.sentiment)
 
+        # Talking politics moves both opinions: together if it went well,
+        # apart if it did not. This is the whole of the campaign.
+        if conv.topic == "politics":
+            election_mod.drift_opinions(
+                a, b, conv.sentiment, a.rel(b.id).familiarity)
+
         for rec in share:
             from ..cognition.schemas import GossipItem
             item = GossipItem(subject=rec["subject"], predicate=rec["predicate"],
@@ -389,6 +475,7 @@ class Simulation:
                         me, "observation",
                         f"Word going round: {gossip_mod.sentence(conv.gossip, self.name_of)}.",
                         t, subjects=(conv.gossip.subject,) if conv.gossip.subject else ())
+                    self._rumour_fallout(me, conv.gossip)
 
         self.conversations.append({
             "tick": t, "clock": self.cfg.clock(t), "place": place,
@@ -485,6 +572,8 @@ class Simulation:
                 ev.text = describe(ev.kind, ev.payload)
                 if area:
                     ev.payload["cache_invalidated"] = self.cache.invalidate_area(area)
+            elif ev.kind == "election_called":
+                self._call_election(ev, t, day=self.cfg.day_of(t))
             elif ev.kind == "remittance":
                 for a in self._scope_agents(ev.scope):
                     self.economy.remit(a, float(ev.payload.get("amount", 50.0)),
@@ -494,6 +583,23 @@ class Simulation:
                 self._remember(a, "observation", ev.text, t,
                                importance=ev.importance, source=f"event:{ev.id}")
                 self._react(a, ev, t)
+
+    def _call_election(self, ev: Event, t: int, day: int) -> None:
+        in_days = int(ev.payload.get("in_days", 7))
+        named = ev.payload.get("candidates") or None
+        candidates = election_mod.pick_candidates(self.agents, self.order, named)
+        self.election = election_mod.Election(
+            called_tick=t, called_day=day, election_day=day + max(1, in_days),
+            candidates=candidates)
+        self._poll_day = -1
+        ev.payload.update({
+            "in_days": in_days,
+            "candidates": [c.as_dict() for c in candidates],
+            "when": ev.payload.get("when", f"in {in_days} days"),
+        })
+        standing = " and ".join(c.name for c in candidates)
+        ev.text = (f"An election has been called for {ev.payload['when']}. "
+                   f"{standing} are standing.")
 
     def _react(self, a: Agent, ev: Event, t: int) -> None:
         current = (f"{a.action.affordance} at "
@@ -555,6 +661,8 @@ class Simulation:
             "pathfinder": self.pf.stats(),
             "validator": self.validator.stats(),
             "decisions_by_tier": dict(sorted(self.decisions_by_tier.items())),
+            "election": (self.election.as_dict(self.cfg.day_of(t))
+                         if self.election else None),
             "gossip": gossip_mod.spread_stats(
                 [self.agents[i] for i in self.order]),
             "digest": self.recorder.digest,

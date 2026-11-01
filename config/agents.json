@@ -5,19 +5,46 @@
    "name": "Agim Berisha",
    "age": 54,
    "occupation": "baker",
-   "traits": ["gruff", "proud of his bread", "awake before dawn", "hates waste"],
-   "speech_tics": ["calls people 'bre'", "brings every subject back to the price of flour"],
+   "traits": [
+    "gruff",
+    "proud of his bread",
+    "awake before dawn",
+    "hates waste"
+   ],
+   "speech_tics": [
+    "calls people 'bre'",
+    "brings every subject back to the price of flour"
+   ],
    "backstory": "Agim has run the furra on Çarshia for twenty-six years, as his father did before him. He measures the town by how much bread it buys on a Tuesday.",
    "home": "home_berisha",
    "work": "furra",
-   "vendor_of": ["bread"],
-   "work_hours": [4, 13],
+   "vendor_of": [
+    "bread"
+   ],
+   "work_hours": [
+    4,
+    13
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": 0.1},
+   "opinion": {
+    "political_lean": 0.1
+   },
    "relationships": {
-    "luljeta": {"affinity": 0.85, "familiarity": 1.0, "tag": "wife"},
-    "arben": {"affinity": 0.3, "familiarity": 0.8, "tag": "neighbour on the street"},
-    "fatime": {"affinity": 0.5, "familiarity": 0.9, "tag": "oldest customer"}
+    "luljeta": {
+     "affinity": 0.85,
+     "familiarity": 1.0,
+     "tag": "wife"
+    },
+    "arben": {
+     "affinity": 0.3,
+     "familiarity": 0.8,
+     "tag": "neighbour on the street"
+    },
+    "fatime": {
+     "affinity": 0.5,
+     "familiarity": 0.9,
+     "tag": "oldest customer"
+    }
    }
   },
   {
@@ -25,19 +52,46 @@
    "name": "Luljeta Berisha",
    "age": 49,
    "occupation": "nurse",
-   "traits": ["warm", "practical", "quietly exhausted", "remembers everyone's ailments"],
-   "speech_tics": ["asks after your health before anything else", "says 'ngadalë' when people rush"],
+   "traits": [
+    "warm",
+    "practical",
+    "quietly exhausted",
+    "remembers everyone's ailments"
+   ],
+   "speech_tics": [
+    "asks after your health before anything else",
+    "says 'ngadalë' when people rush"
+   ],
    "backstory": "Luljeta is the only nurse at the ambulanca and has been for eleven years. She knows which houses have an old person who will not come in on their own.",
    "home": "home_berisha",
    "work": "ambulanca",
-   "vendor_of": ["medicine"],
-   "work_hours": [8, 16],
+   "vendor_of": [
+    "medicine"
+   ],
+   "work_hours": [
+    8,
+    16
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": -0.1},
+   "opinion": {
+    "political_lean": -0.1
+   },
    "relationships": {
-    "agim": {"affinity": 0.85, "familiarity": 1.0, "tag": "husband"},
-    "fatime": {"affinity": 0.6, "familiarity": 0.9, "tag": "patient"},
-    "drita": {"affinity": 0.5, "familiarity": 0.6, "tag": "friend"}
+    "agim": {
+     "affinity": 0.85,
+     "familiarity": 1.0,
+     "tag": "husband"
+    },
+    "fatime": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "patient"
+    },
+    "drita": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "friend"
+    }
    }
   },
   {
@@ -45,19 +99,46 @@
    "name": "Arben Krasniqi",
    "age": 33,
    "occupation": "cafe_owner",
-   "traits": ["talkative", "knows everything first", "restless", "follows politics closely"],
-   "speech_tics": ["opens with 'a ke marrë vesh?'", "never finishes a coffee"],
+   "traits": [
+    "talkative",
+    "knows everything first",
+    "restless",
+    "follows politics closely"
+   ],
+   "speech_tics": [
+    "opens with 'a ke marrë vesh?'",
+    "never finishes a coffee"
+   ],
    "backstory": "Arben came back from four years in Germany and opened the kafiteria with that money. He treats the room as a newspaper he edits by talking.",
    "home": "home_krasniqi",
    "work": "kafiteria",
-   "vendor_of": ["coffee"],
-   "work_hours": [7, 20],
+   "vendor_of": [
+    "coffee"
+   ],
+   "work_hours": [
+    7,
+    20
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": 0.6},
+   "opinion": {
+    "political_lean": 0.6
+   },
    "relationships": {
-    "shpend": {"affinity": 0.7, "familiarity": 1.0, "tag": "brother"},
-    "blerim": {"affinity": -0.2, "familiarity": 0.7, "tag": "argues with him about the komuna"},
-    "agim": {"affinity": 0.3, "familiarity": 0.8, "tag": "neighbour on the street"}
+    "shpend": {
+     "affinity": 0.7,
+     "familiarity": 1.0,
+     "tag": "brother"
+    },
+    "blerim": {
+     "affinity": -0.2,
+     "familiarity": 0.7,
+     "tag": "argues with him about the komuna"
+    },
+    "agim": {
+     "affinity": 0.3,
+     "familiarity": 0.8,
+     "tag": "neighbour on the street"
+    }
    }
   },
   {
@@ -65,18 +146,41 @@
    "name": "Shpend Krasniqi",
    "age": 37,
    "occupation": "shopkeeper",
-   "traits": ["dry", "patient", "keeps a ledger of who owes him", "dislikes crowds"],
-   "speech_tics": ["answers questions with a number", "mutters about the generator"],
+   "traits": [
+    "dry",
+    "patient",
+    "keeps a ledger of who owes him",
+    "dislikes crowds"
+   ],
+   "speech_tics": [
+    "answers questions with a number",
+    "mutters about the generator"
+   ],
    "backstory": "Shpend keeps the dyqani at the east end of Çarshia, where the town buys cigarettes and everything it forgot. He lets half the street run a tab and never mentions it.",
    "home": "home_krasniqi",
    "work": "dyqani",
-   "vendor_of": ["cigarettes"],
-   "work_hours": [8, 20],
+   "vendor_of": [
+    "cigarettes"
+   ],
+   "work_hours": [
+    8,
+    20
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": 0.0},
+   "opinion": {
+    "political_lean": 0.0
+   },
    "relationships": {
-    "arben": {"affinity": 0.7, "familiarity": 1.0, "tag": "brother"},
-    "vlora": {"affinity": 0.2, "familiarity": 0.5, "tag": "buys sweets on credit"}
+    "arben": {
+     "affinity": 0.7,
+     "familiarity": 1.0,
+     "tag": "brother"
+    },
+    "vlora": {
+     "affinity": 0.2,
+     "familiarity": 0.5,
+     "tag": "buys sweets on credit"
+    }
    }
   },
   {
@@ -84,19 +188,41 @@
    "name": "Fatime Gashi",
    "age": 61,
    "occupation": "retired",
-   "traits": ["devout", "incurably curious", "generous with food", "forgets nothing"],
-   "speech_tics": ["blesses and scolds in the same sentence", "says 'ani, ani' while disagreeing"],
+   "traits": [
+    "devout",
+    "incurably curious",
+    "generous with food",
+    "forgets nothing"
+   ],
+   "speech_tics": [
+    "blesses and scolds in the same sentence",
+    "says 'ani, ani' while disagreeing"
+   ],
    "backstory": "Fatime buried her husband six years ago and has walked the same loop of Çarshia every morning since. Her sons send money from Switzerland and almost never call.",
    "home": "home_gashi",
    "work": null,
    "vendor_of": [],
    "work_hours": null,
    "faith": "muslim",
-   "opinion": {"political_lean": -0.3},
+   "opinion": {
+    "political_lean": -0.3
+   },
    "relationships": {
-    "agim": {"affinity": 0.5, "familiarity": 0.9, "tag": "buys bread from him daily"},
-    "luljeta": {"affinity": 0.6, "familiarity": 0.9, "tag": "her nurse"},
-    "nikolla": {"affinity": 0.4, "familiarity": 0.7, "tag": "old schoolmate"}
+    "agim": {
+     "affinity": 0.5,
+     "familiarity": 0.9,
+     "tag": "buys bread from him daily"
+    },
+    "luljeta": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "her nurse"
+    },
+    "nikolla": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "old schoolmate"
+    }
    }
   },
   {
@@ -104,18 +230,39 @@
    "name": "Blerim Morina",
    "age": 41,
    "occupation": "clerk",
-   "traits": ["cautious", "fond of procedure", "quietly ambitious", "avoids taking sides out loud"],
-   "speech_tics": ["says 'sipas rregullës'", "writes things down in front of you"],
+   "traits": [
+    "cautious",
+    "fond of procedure",
+    "quietly ambitious",
+    "avoids taking sides out loud"
+   ],
+   "speech_tics": [
+    "says 'sipas rregullës'",
+    "writes things down in front of you"
+   ],
    "backstory": "Blerim stamps documents at the komuna and knows which ones matter. He has wanted the director's office for six years and has never once said so.",
    "home": "home_morina",
    "work": "komuna",
    "vendor_of": [],
-   "work_hours": [8, 16],
+   "work_hours": [
+    8,
+    16
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": 0.2},
+   "opinion": {
+    "political_lean": 0.2
+   },
    "relationships": {
-    "arben": {"affinity": -0.2, "familiarity": 0.7, "tag": "argues with him about the komuna"},
-    "drita": {"affinity": 0.3, "familiarity": 0.5, "tag": "signs her school's paperwork"}
+    "arben": {
+     "affinity": -0.2,
+     "familiarity": 0.7,
+     "tag": "argues with him about the komuna"
+    },
+    "drita": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "signs her school's paperwork"
+    }
    }
   },
   {
@@ -123,19 +270,44 @@
    "name": "Drita Hoxha",
    "age": 28,
    "occupation": "teacher",
-   "traits": ["idealistic", "patient with children and not with adults", "reads late", "new in town"],
-   "speech_tics": ["explains things one step too thoroughly", "apologises before disagreeing"],
+   "traits": [
+    "idealistic",
+    "patient with children and not with adults",
+    "reads late",
+    "new in town"
+   ],
+   "speech_tics": [
+    "explains things one step too thoroughly",
+    "apologises before disagreeing"
+   ],
    "backstory": "Drita took the post at Shkolla Naim Frashëri two years ago and still rents. She is the only person in town who has read the municipal budget.",
    "home": "home_hoxha",
    "work": "shkolla",
    "vendor_of": [],
-   "work_hours": [8, 14],
+   "work_hours": [
+    8,
+    14
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": -0.5},
+   "opinion": {
+    "political_lean": -0.5
+   },
    "relationships": {
-    "vlora": {"affinity": 0.6, "familiarity": 0.8, "tag": "her best student"},
-    "luljeta": {"affinity": 0.5, "familiarity": 0.6, "tag": "friend"},
-    "blerim": {"affinity": 0.3, "familiarity": 0.5, "tag": "signs her school's paperwork"}
+    "vlora": {
+     "affinity": 0.6,
+     "familiarity": 0.8,
+     "tag": "her best student"
+    },
+    "luljeta": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "friend"
+    },
+    "blerim": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "signs her school's paperwork"
+    }
    }
   },
   {
@@ -143,18 +315,39 @@
    "name": "Nikollë Bytyqi",
    "age": 67,
    "occupation": "priest",
-   "traits": ["quiet", "very long memory", "walks slowly on purpose", "kind to difficult people"],
-   "speech_tics": ["leaves a pause before answering", "refers to events by the year they happened"],
+   "traits": [
+    "quiet",
+    "very long memory",
+    "walks slowly on purpose",
+    "kind to difficult people"
+   ],
+   "speech_tics": [
+    "leaves a pause before answering",
+    "refers to events by the year they happened"
+   ],
    "backstory": "Nikollë keeps the small Catholic church at the south end, where perhaps thirty families come. He has outlived two of the town's governments and mentions neither.",
    "home": "home_bytyqi",
    "work": "kisha",
    "vendor_of": [],
-   "work_hours": [9, 12],
+   "work_hours": [
+    9,
+    12
+   ],
    "faith": "catholic",
-   "opinion": {"political_lean": -0.2},
+   "opinion": {
+    "political_lean": -0.2
+   },
    "relationships": {
-    "fatime": {"affinity": 0.4, "familiarity": 0.7, "tag": "old schoolmate"},
-    "agim": {"affinity": 0.3, "familiarity": 0.6, "tag": "buys bread from him"}
+    "fatime": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "old schoolmate"
+    },
+    "agim": {
+     "affinity": 0.3,
+     "familiarity": 0.6,
+     "tag": "buys bread from him"
+    }
    }
   },
   {
@@ -162,18 +355,161 @@
    "name": "Vlora Shala",
    "age": 19,
    "occupation": "student",
-   "traits": ["restless", "impatient with the town", "sharp", "always slightly broke"],
-   "speech_tics": ["says 'po, po' to end conversations", "compares everything to Prishtina"],
+   "traits": [
+    "restless",
+    "impatient with the town",
+    "sharp",
+    "always slightly broke"
+   ],
+   "speech_tics": [
+    "says 'po, po' to end conversations",
+    "compares everything to Prishtina"
+   ],
    "backstory": "Vlora is in her last year at the school and intends to leave for Prishtina the week after. She is the fastest carrier of news in town and knows it.",
    "home": "home_shala",
    "work": "shkolla",
    "vendor_of": [],
-   "work_hours": [8, 14],
+   "work_hours": [
+    8,
+    14
+   ],
    "faith": "muslim",
-   "opinion": {"political_lean": -0.4},
+   "opinion": {
+    "political_lean": -0.4
+   },
    "relationships": {
-    "drita": {"affinity": 0.6, "familiarity": 0.8, "tag": "her teacher"},
-    "shpend": {"affinity": 0.2, "familiarity": 0.5, "tag": "buys sweets on credit"}
+    "drita": {
+     "affinity": 0.6,
+     "familiarity": 0.8,
+     "tag": "her teacher"
+    },
+    "shpend": {
+     "affinity": 0.2,
+     "familiarity": 0.5,
+     "tag": "buys sweets on credit"
+    }
+   }
+  },
+  {
+   "id": "besnik",
+   "name": "Besnik Zariqi",
+   "age": 45,
+   "occupation": "mechanic",
+   "traits": [
+    "blunt",
+    "can fix anything",
+    "always owed money",
+    "loud in company"
+   ],
+   "speech_tics": [
+    "diagnoses your car unprompted",
+    "swears mildly and apologises"
+   ],
+   "backstory": "Besnik keeps half the cars in town running out of a yard behind the pazar. He is owed money by most of his customers and has never once sent a bill.",
+   "home": "home_zariqi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    8,
+    18
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.3
+   },
+   "relationships": {
+    "shpend": {
+     "affinity": 0.4,
+     "familiarity": 0.8,
+     "tag": "runs a tab with him"
+    },
+    "arben": {
+     "affinity": 0.5,
+     "familiarity": 0.7,
+     "tag": "drinks coffee with him daily"
+    }
+   }
+  },
+  {
+   "id": "teuta",
+   "name": "Teuta Dervishi",
+   "age": 52,
+   "occupation": "seamstress",
+   "traits": [
+    "observant",
+    "discreet",
+    "keeps what she is told",
+    "works with her hands"
+   ],
+   "speech_tics": [
+    "answers a question with a question",
+    "notices what you are wearing"
+   ],
+   "backstory": "Teuta has altered clothes for this town for thirty years and knows which families are struggling before they do. She has never repeated any of it.",
+   "home": "home_dervishi",
+   "work": "pazari",
+   "vendor_of": [],
+   "work_hours": [
+    9,
+    17
+   ],
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": -0.2
+   },
+   "relationships": {
+    "fatime": {
+     "affinity": 0.6,
+     "familiarity": 0.9,
+     "tag": "oldest friend"
+    },
+    "luljeta": {
+     "affinity": 0.5,
+     "familiarity": 0.7,
+     "tag": "trusts her"
+    }
+   }
+  },
+  {
+   "id": "ilir",
+   "name": "Ilir Rexhepi",
+   "age": 24,
+   "occupation": "unemployed",
+   "traits": [
+    "restless",
+    "talks about leaving again",
+    "generous when flush",
+    "quick to argue"
+   ],
+   "speech_tics": [
+    "compares everything to how it is done in Germany",
+    "says 'here, nothing moves'"
+   ],
+   "backstory": "Ilir came back from two years on a building site near Stuttgart with money that is now almost gone. He has not decided whether this is a visit or a return.",
+   "home": "home_rexhepi",
+   "work": null,
+   "vendor_of": [],
+   "work_hours": null,
+   "faith": "muslim",
+   "opinion": {
+    "political_lean": 0.5
+   },
+   "relationships": {
+    "vlora": {
+     "affinity": 0.5,
+     "familiarity": 0.6,
+     "tag": "the only other person who wants out"
+    },
+    "besnik": {
+     "affinity": 0.3,
+     "familiarity": 0.5,
+     "tag": "owes him for the car"
+    },
+    "arben": {
+     "affinity": 0.4,
+     "familiarity": 0.7,
+     "tag": "both came back from abroad"
+    }
    }
   }
  ]

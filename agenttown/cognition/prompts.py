@@ -25,9 +25,33 @@ BREAKPOINT = "\n<<<CACHE_BREAKPOINT>>>\n"
 
 SYSTEM = (
     "You are simulating one resident of a small town in Kosovo. "
-    "Stay strictly in character. Answer only with the requested JSON. "
-    "Never invent places or people that are not listed for you."
+    "Stay strictly in character, keep every line short and spoken, and answer "
+    "only with the requested JSON. Use only the places, people and actions "
+    "listed below - anything else is rejected and discarded."
 )
+
+#: The legal vocabulary of this world, set once per run by the Simulation.
+#: It is constant for a whole run, so it belongs in the cached prefix - which
+#: is also what stops a real model inventing geography the validator would
+#: only throw away.
+_VOCABULARY = ""
+
+
+def set_vocabulary(areas: dict[str, str], affordances: tuple[str, ...],
+                   agents: dict[str, str]) -> None:
+    """areas and agents map id -> display name. Both are run-constant."""
+    global _VOCABULARY
+    places = "\n".join(f"  {k} = {v}" for k, v in sorted(areas.items()))
+    people = "\n".join(f"  {k} = {v}" for k, v in sorted(agents.items()))
+    _VOCABULARY = (
+        "## Places - refer to them by id, never by name\n" + places
+        + "\n\n## Actions you may choose\n  " + ", ".join(affordances)
+        + "\n\n## People - refer to them by id\n" + people
+    )
+
+
+def vocabulary() -> str:
+    return _VOCABULARY
 
 
 def identity_card(brief: AgentBrief) -> str:
@@ -66,7 +90,7 @@ def plan_prompt(req: PlanRequest) -> str:
              if req.work_hours else "none")
     prices = ", ".join(f"{k} {v:.2f}" for k, v in sorted(req.prices.items()))
     return (
-        f"{SYSTEM}\n\n{identity_card(req.agent)}{BREAKPOINT}"
+        f"{SYSTEM}\n\n{_VOCABULARY}\n\n{identity_card(req.agent)}{BREAKPOINT}"
         f"Day {req.day}. {_state_block(req.agent, req.clock)}\n"
         f"Your working hours: {hours}\nPrices today: {prices}\n\n"
         f"What you have been thinking about:\n{_memories_block(req.memories)}\n\n"
@@ -79,7 +103,7 @@ def converse_prompt(req: ConverseRequest) -> str:
     gossip = ("\n".join(f"- {g.get('sentence', '')}" for g in req.a_gossip)
               or "- nothing new")
     return (
-        f"{SYSTEM}\n\n{identity_card(req.a)}{BREAKPOINT}"
+        f"{SYSTEM}\n\n{_VOCABULARY}\n\n{identity_card(req.a)}{BREAKPOINT}"
         f"Time: {req.clock}. You are at {req.place}.\n"
         f"You meet {req.b.name} ({req.b.occupation}), who is {rel}. "
         f"Your feeling toward them: {req.a.affinity:+.2f}.\n"
@@ -93,7 +117,7 @@ def converse_prompt(req: ConverseRequest) -> str:
 
 def reflect_prompt(req: ReflectRequest) -> str:
     return (
-        f"{SYSTEM}\n\n{identity_card(req.agent)}{BREAKPOINT}"
+        f"{SYSTEM}\n\n{_VOCABULARY}\n\n{identity_card(req.agent)}{BREAKPOINT}"
         f"Day {req.day}. {_state_block(req.agent)}\n\n"
         f"What has happened to you recently:\n{_memories_block(req.memories)}\n\n"
         "What are two or three higher-level things you now believe? "
@@ -104,7 +128,7 @@ def reflect_prompt(req: ReflectRequest) -> str:
 
 def react_prompt(req: ReactRequest) -> str:
     return (
-        f"{SYSTEM}\n\n{identity_card(req.agent)}{BREAKPOINT}"
+        f"{SYSTEM}\n\n{_VOCABULARY}\n\n{identity_card(req.agent)}{BREAKPOINT}"
         f"Time: {req.clock}. {_state_block(req.agent)}\n"
         f"You are currently: {req.current_action}\n\n"
         f"Something has happened: {req.trigger}\n\n"
@@ -117,7 +141,7 @@ def react_prompt(req: ReactRequest) -> str:
 def importance_prompt(req: ImportanceRequest) -> str:
     items = "\n".join(f"{i}. [{kind}] {text}" for i, kind, text in req.items)
     return (
-        f"{SYSTEM}{BREAKPOINT}"
+        f"{SYSTEM}\n\n{_VOCABULARY}{BREAKPOINT}"
         "Score how memorable each of these is for the person who experienced "
         "it, from 1 (utterly mundane) to 10 (life-changing).\n\n"
         f"{items}\n\nAnswer as {{scores:{{id:score}}}}."
