@@ -1,0 +1,10 @@
+{
+ "title": "A hard week",
+ "description": "Power cuts, a cold snap and bread up by a fifth, with remittances arriving for one family. Pressure from several directions at once.",
+ "events": [
+  {"kind": "power_cut", "payload": {"hours": 5}, "scope": "town", "importance": 7.0},
+  {"kind": "weather", "payload": {"to": "bitterly cold"}, "scope": "town", "importance": 4.0},
+  {"kind": "price_change", "payload": {"item": "bread", "factor": 1.2}, "scope": "town", "importance": 7.5},
+  {"kind": "remittance", "payload": {"amount": 120.0, "who": "the Gashi family"}, "scope": "fatime", "importance": 7.0}
+ ]
+}

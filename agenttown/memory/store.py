@@ -65,7 +65,17 @@ class MemoryStore:
             p.parent.mkdir(parents=True, exist_ok=True)
             if fresh:
                 for suffix in ("", "-wal", "-shm"):
-                    Path(self.path + suffix).unlink(missing_ok=True)
+                    try:
+                        Path(self.path + suffix).unlink(missing_ok=True)
+                    except PermissionError as exc:
+                        # On Windows a running server holds the file open, and
+                        # the bare OSError is impossible to act on.
+                        raise RuntimeError(
+                            f"cannot start a fresh run: {self.path} is locked by "
+                            "another process. An AgentTown server is probably "
+                            "already running - stop it, or point memory.db at a "
+                            "different file in config/sim.toml."
+                        ) from exc
         self.db = sqlite3.connect(self.path, check_same_thread=False)
         self.db.row_factory = sqlite3.Row
         if self.path != ":memory:":

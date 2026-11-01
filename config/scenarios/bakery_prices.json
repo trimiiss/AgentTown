@@ -1,0 +1,12 @@
+{
+ "title": "The bakery raises prices",
+ "description": "Agim puts bread up from 0.50 to 0.95. Watch who hears it, who stocks up, who complains, and how long the rumour takes to cross the town and turn false.",
+ "events": [
+  {
+   "kind": "price_change",
+   "payload": {"item": "bread", "to": 0.95},
+   "scope": "town",
+   "importance": 8.5
+  }
+ ]
+}

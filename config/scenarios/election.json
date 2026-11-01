@@ -1,0 +1,18 @@
+{
+ "title": "Election next week",
+ "description": "A vote is called. Blerim at the komuna is rumoured to want the top job. Opinions drift through conversation and gossip; watch the kafiteria fill up.",
+ "events": [
+  {
+   "kind": "election_called",
+   "payload": {"when": "next Sunday"},
+   "scope": "town",
+   "importance": 9.0
+  },
+  {
+   "kind": "rumour",
+   "payload": {"claim": "Blerim has already been promised the directorship"},
+   "scope": "kafiteria",
+   "importance": 7.5
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentTown</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header id="hud">
+  <h1>AgentTown</h1>
+  <div class="clock"><span id="clock">--:--</span><span id="day" class="muted">day 0</span></div>
+  <div class="controls">
+    <button id="btn-pause" title="Space">Pause</button>
+    <button id="btn-step" title="One tick">Step</button>
+    <label>speed
+      <select id="speed">
+        <option value="400">slow</option>
+        <option value="100" selected>normal</option>
+        <option value="30">fast</option>
+        <option value="5">flat out</option>
+      </select>
+    </label>
+  </div>
+  <div id="meters" class="meters"></div>
+</header>
+
+<main>
+  <section id="stage">
+    <canvas id="map" width="960" height="640"></canvas>
+    <div id="legend" class="legend"></div>
+  </section>
+
+  <aside id="side">
+    <nav class="tabs">
+      <button data-tab="agent" class="active">Agent</button>
+      <button data-tab="feed">Talk</button>
+      <button data-tab="gossip">Rumours</button>
+      <button data-tab="inject">Inject</button>
+      <button data-tab="cost">Cost</button>
+    </nav>
+
+    <div id="tab-agent" class="tab active">
+      <p class="hint">Click somebody on the map.</p>
+    </div>
+
+    <div id="tab-feed" class="tab"><div id="feed"></div></div>
+
+    <div id="tab-gossip" class="tab"><div id="gossip"></div></div>
+
+    <div id="tab-inject" class="tab">
+      <h3>Scenarios</h3>
+      <div id="scenarios"></div>
+      <h3>One-off event</h3>
+      <form id="custom-event">
+        <label>kind
+          <select name="kind">
+            <option>price_change</option>
+            <option>announcement</option>
+            <option>election_called</option>
+            <option>power_cut</option>
+            <option>rumour</option>
+            <option>remittance</option>
+            <option>weather</option>
+          </select>
+        </label>
+        <label>payload (JSON)
+          <textarea name="payload" rows="3">{"item": "bread", "to": 1.10}</textarea>
+        </label>
+        <label>scope
+          <input name="scope" value="town" list="scope-list">
+          <datalist id="scope-list"></datalist>
+        </label>
+        <button type="submit">Inject</button>
+      </form>
+      <p id="inject-result" class="muted"></p>
+    </div>
+
+    <div id="tab-cost" class="tab"><div id="cost"></div></div>
+  </aside>
+</main>
+
+<script type="module" src="/static/app.js"></script>
+</body>
+</html>

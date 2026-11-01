@@ -103,6 +103,7 @@ class Simulation:
         self.llm_log: list[dict] = []
         self.pending_speech: list[tuple[int, str, str]] = []
         self._obs_counter: dict[tuple, int] = {}
+        self._costs_day = -1
         self._pending_scores: list[tuple[int, str, str]] = []
         self.decisions_by_tier: dict[str, int] = {}
 
@@ -164,6 +165,7 @@ class Simulation:
 
         self._apply_events(t)
         self._reveal_speech(t)
+        self._daily_costs(t, day)
         self._plan_phase(t, day, hour)
         for aid in self.order:
             self._tick_agent(self.agents[aid], t, hour, day)
@@ -178,6 +180,24 @@ class Simulation:
         for _ in range(ticks):
             last = self.step()
         return last
+
+    # --- standing costs ------------------------------------------------
+    def _daily_costs(self, t: int, day: int) -> None:
+        if day == self._costs_day:
+            return
+        self._costs_day = day
+        payday = day % 7 == 0
+        for aid in self.order:
+            a = self.agents[aid]
+            self.economy.charge_daily_costs(
+                a, t, self.cfg.economy.daily_household_cost,
+                self.cfg.economy.daily_vendor_cost)
+            if payday and self.economy.wage_rate(a.occupation) <= 0.0:
+                amount = self.economy.remit(a, self.cfg.economy.weekly_support,
+                                            t, "from the family abroad")
+                self._remember(a, "observation",
+                               f"Money came through from abroad, {amount:.2f} euro.",
+                               t, importance=6.5)
 
     # --- planning ------------------------------------------------------
     def _plan_phase(self, t: int, day: int, hour: int) -> None:
@@ -256,6 +276,10 @@ class Simulation:
             self.economy.consume(a, "bread")
         if paid:
             a.needs.apply(spec.needs)
+        elif spec.purchase:
+            # no money, but they get by somehow - otherwise the agent retries
+            # the same unaffordable purchase every few ticks forever
+            a.needs.apply({k: v * 0.4 for k, v in spec.needs.items()})
 
         if not spec.memorable:
             return
@@ -424,6 +448,11 @@ class Simulation:
     # --- events --------------------------------------------------------
     def inject(self, kind: str, payload: dict | None = None,
                scope: str = "town", importance: float = 8.0) -> Event:
+        payload = dict(payload or {})
+        if kind == "price_change" and "where" not in payload:
+            area = VENDOR_AREA.get(str(payload.get("item", "bread")), "")
+            if area:
+                payload["where"] = self.grid.areas[area].name
         return self.events.inject(kind, payload, scope, max(self.tick, 0),
                                   importance=importance)
 

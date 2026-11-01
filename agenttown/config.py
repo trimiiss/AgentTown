@@ -55,6 +55,9 @@ class EconomyCfg:
     starting_money: float
     prices: dict[str, float]
     wages: dict[str, float]
+    daily_household_cost: float
+    daily_vendor_cost: float
+    weekly_support: float
 
 
 @dataclass(frozen=True)
@@ -108,6 +111,9 @@ class Config:
                 starting_money=econ["starting_money"],
                 prices=dict(econ["prices"]),
                 wages=dict(econ["wages"]),
+                daily_household_cost=float(econ["daily_household_cost"]),
+                daily_vendor_cost=float(econ["daily_vendor_cost"]),
+                weekly_support=float(econ["weekly_support"]),
             ),
             conversation=ConversationCfg(**raw["conversation"]),
             cognition=CognitionCfg(

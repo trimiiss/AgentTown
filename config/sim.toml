@@ -17,6 +17,14 @@ agents = "config/agents.json"
 
 [economy]
 starting_money = 25.0
+# Declared sinks. Without these, money only ever enters the town (wages) and
+# circulates, so whoever sells the most inflates forever.
+daily_household_cost = 0.60   # power, water, the things nobody talks about
+daily_vendor_cost = 1.50      # restocking the shelves
+# Kosovo runs partly on remittances. Agents with no wage (retired, student)
+# get a weekly lump from relatives abroad, which gives them a real rhythm of
+# being flush and then broke.
+weekly_support = 14.0
 # Prices are world variables. "The bakery raises prices" is a write to one of these.
 [economy.prices]
 bread = 0.50

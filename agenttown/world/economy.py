@@ -71,6 +71,19 @@ class Economy:
         self.sourced += rate
         return rate
 
+    def charge_daily_costs(self, agent, tick: int, household: float,
+                           vendor: float) -> float:
+        """A declared sink: the standing costs of being alive and of trading."""
+        amount = household + (vendor if agent.vendor_of else 0.0)
+        amount = min(amount, max(0.0, agent.money))
+        if amount <= 0.0:
+            return 0.0
+        agent.money -= amount
+        self.sunk += amount
+        self.ledger.append(Transaction(tick, "costs", agent.id, None, None,
+                                       amount, "standing costs"))
+        return amount
+
     def remit(self, agent, amount: float, tick: int, note: str = "") -> float:
         agent.money += amount
         self.sourced += amount
