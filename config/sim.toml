@@ -1,0 +1,79 @@
+# AgentTown simulation configuration.
+# Everything that makes a run reproducible lives here.
+
+[sim]
+seed = 20260101
+ticks_per_day = 144        # 10 simulated minutes per tick
+minutes_per_tick = 10
+real_ms_per_tick = 100     # wall-clock pacing: 10 ticks/sec => ~14s per sim-day
+walk_speed = 3             # tiles per tick; crossing town is ~1.5 sim-hours on foot
+start_hour = 0             # tick 0 is midnight, so a sim-day is a calendar day
+plan_hour = 5              # agents plan the day ahead at 05:00
+autostart = true
+
+[world]
+town = "config/town.json"
+agents = "config/agents.json"
+
+[economy]
+starting_money = 25.0
+# Prices are world variables. "The bakery raises prices" is a write to one of these.
+[economy.prices]
+bread = 0.50
+coffee = 0.80
+cigarettes = 1.20
+medicine = 3.00
+[economy.wages]            # paid per tick while working
+baker = 0.22
+cafe_owner = 0.20
+teacher = 0.18
+nurse = 0.18
+clerk = 0.16
+shopkeeper = 0.20
+imam = 0.12
+priest = 0.12
+student = 0.0
+retired = 0.0
+unemployed = 0.0
+
+# Needs are PRESSURES in 0..1: they rise over time and affordances relieve them.
+# mood is the exception - higher is better.
+[needs]
+hunger_per_tick = 0.008     # fed -> hungry in about 10 sim-hours
+fatigue_per_tick = 0.0075   # rested -> exhausted across a waking day
+loneliness_per_tick = 0.006
+act_threshold = 0.62        # a need starts competing with the plan
+urgent_threshold = 0.88     # a need overrides the plan outright
+
+[retrieval]
+w_recency = 1.0
+w_importance = 1.0
+w_relevance = 1.0
+recency_half_life_ticks = 288   # two sim-days
+top_k = 10
+
+[memory]
+embed_dim = 128
+working_set = 1500              # in-RAM embeddings per agent, LRU to SQLite beyond
+db = "runs/agenttown.sqlite3"
+reflection_threshold = 60.0
+
+[cognition]
+backend = "mock"                # mock | claude | local
+
+# Per-sim-day ceilings per call type. Exhaustion degrades to the mock backend.
+[cognition.budget]
+daily_plan = 120
+converse = 400
+reflect = 60
+react = 200
+score_importance = 120
+
+[conversation]
+cooldown_ticks = 18             # same pair won't re-converse within 3 sim-hours
+min_social_need = 0.25
+max_turns = 4
+
+[recorder]
+enabled = true
+dir = "runs"

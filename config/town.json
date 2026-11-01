@@ -1,0 +1,702 @@
+{
+ "width": 60,
+ "height": 40,
+ "legend": {
+  ".": "ground",
+  "#": "wall",
+  ",": "grass"
+ },
+ "terrain": [
+  "############################################################",
+  "#..........................................................#",
+  "#.......#######..#######..........#######..#######.........#",
+  "#.......#.....#..#.....#..........#.....#..#.....#.........#",
+  "#.......#.....#..#.....#..........#.....#..#.....#.........#",
+  "#.......#.....#..#.....#..........#.....#..#.....#.........#",
+  "#.......#.....#..#.....#..........#.....#..#.....#.........#",
+  "#.......###.###..###.###..........###.###..###.###.........#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#.......#########..###########....###########..,,,,,,,.....#",
+  "#.......#.......#..#.........#....#.........#..,,,,,,,.....#",
+  "#.......#.......#..#.........#....#.........#..,,,,,,,.....#",
+  "#.......#.......#..#.........#....#.........#..,,,,,,,.....#",
+  "#.......#.......#..#.........#....#.........#..,,,,,,,.....#",
+  "#.......#.......#..#.........#....#.........#..,,,,,,,.....#",
+  "#.......####.####..#####.#####....#####.#####..,,,,,,,.....#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#.......###.###..###.###.##.##....,,,,,,,,,,,..###.###.....#",
+  "#.......#.....#..#.....#.#...#....,,,,,,,,,,,..#.....#.....#",
+  "#.......#.....#..#.....#.#...#....,,,,,,,,,,,..#.....#.....#",
+  "#.......#.....#..#.....#.#...#....,,,,,,,,,,,..#.....#.....#",
+  "#.......#.....#..#.....#.#...#....,,,,,,,,,,,..#.....#.....#",
+  "#.......#.....#..#.....#.#...#....,,,,,,,,,,,..#.....#.....#",
+  "#.......#######..#######.#####....,,,,,,,,,,,..#######.....#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#..........................................................#",
+  "#.......####.####..###.###........###.###..###.###.........#",
+  "#.......#.......#..#.....#........#.....#..#.....#.........#",
+  "#.......#.......#..#.....#........#.....#..#.....#.........#",
+  "#.......#.......#..#.....#........#.....#..#.....#.........#",
+  "#.......#.......#..#.....#........#.....#..#.....#.........#",
+  "#.......#.......#..#.....#........#.....#..#.....#.........#",
+  "#.......#########..#######........#######..#######.........#",
+  "#..........................................................#",
+  "############################################################"
+ ],
+ "areas": [
+  {
+   "id": "home_berisha",
+   "name": "Shtëpia e Berishajve",
+   "kind": "home",
+   "x0": 8,
+   "y0": 2,
+   "x1": 14,
+   "y1": 7,
+   "entrance": [
+    11,
+    7
+   ]
+  },
+  {
+   "id": "home_krasniqi",
+   "name": "Shtëpia e Krasniqit",
+   "kind": "home",
+   "x0": 17,
+   "y0": 2,
+   "x1": 23,
+   "y1": 7,
+   "entrance": [
+    20,
+    7
+   ]
+  },
+  {
+   "id": "home_gashi",
+   "name": "Shtëpia e Gashit",
+   "kind": "home",
+   "x0": 34,
+   "y0": 2,
+   "x1": 40,
+   "y1": 7,
+   "entrance": [
+    37,
+    7
+   ]
+  },
+  {
+   "id": "home_morina",
+   "name": "Shtëpia e Morinës",
+   "kind": "home",
+   "x0": 43,
+   "y0": 2,
+   "x1": 49,
+   "y1": 7,
+   "entrance": [
+    46,
+    7
+   ]
+  },
+  {
+   "id": "xhamia",
+   "name": "Xhamia e Çarshisë",
+   "kind": "mosque",
+   "x0": 8,
+   "y0": 11,
+   "x1": 16,
+   "y1": 17,
+   "entrance": [
+    12,
+    17
+   ]
+  },
+  {
+   "id": "shkolla",
+   "name": "Shkolla Naim Frashëri",
+   "kind": "school",
+   "x0": 19,
+   "y0": 11,
+   "x1": 29,
+   "y1": 17,
+   "entrance": [
+    24,
+    17
+   ]
+  },
+  {
+   "id": "komuna",
+   "name": "Komuna",
+   "kind": "municipality",
+   "x0": 34,
+   "y0": 11,
+   "x1": 44,
+   "y1": 17,
+   "entrance": [
+    39,
+    17
+   ]
+  },
+  {
+   "id": "furra",
+   "name": "Furra e Çarshisë",
+   "kind": "bakery",
+   "x0": 8,
+   "y0": 21,
+   "x1": 14,
+   "y1": 27,
+   "entrance": [
+    11,
+    21
+   ]
+  },
+  {
+   "id": "kafiteria",
+   "name": "Kafiteria Çarshia",
+   "kind": "cafe",
+   "x0": 17,
+   "y0": 21,
+   "x1": 23,
+   "y1": 27,
+   "entrance": [
+    20,
+    21
+   ]
+  },
+  {
+   "id": "ambulanca",
+   "name": "Ambulanca",
+   "kind": "clinic",
+   "x0": 25,
+   "y0": 21,
+   "x1": 29,
+   "y1": 27,
+   "entrance": [
+    27,
+    21
+   ]
+  },
+  {
+   "id": "dyqani",
+   "name": "Dyqani i Shpendit",
+   "kind": "shop",
+   "x0": 47,
+   "y0": 21,
+   "x1": 53,
+   "y1": 27,
+   "entrance": [
+    50,
+    21
+   ]
+  },
+  {
+   "id": "kisha",
+   "name": "Kisha e Shën Nikollës",
+   "kind": "church",
+   "x0": 8,
+   "y0": 31,
+   "x1": 16,
+   "y1": 37,
+   "entrance": [
+    12,
+    31
+   ]
+  },
+  {
+   "id": "home_hoxha",
+   "name": "Shtëpia e Hoxhës",
+   "kind": "home",
+   "x0": 19,
+   "y0": 31,
+   "x1": 25,
+   "y1": 37,
+   "entrance": [
+    22,
+    31
+   ]
+  },
+  {
+   "id": "home_bytyqi",
+   "name": "Shtëpia e Bytyqit",
+   "kind": "home",
+   "x0": 34,
+   "y0": 31,
+   "x1": 40,
+   "y1": 37,
+   "entrance": [
+    37,
+    31
+   ]
+  },
+  {
+   "id": "home_shala",
+   "name": "Shtëpia e Shalës",
+   "kind": "home",
+   "x0": 43,
+   "y0": 31,
+   "x1": 49,
+   "y1": 37,
+   "entrance": [
+    46,
+    31
+   ]
+  },
+  {
+   "id": "pazari",
+   "name": "Pazari",
+   "kind": "market",
+   "x0": 34,
+   "y0": 21,
+   "x1": 44,
+   "y1": 27,
+   "entrance": [
+    39,
+    24
+   ]
+  },
+  {
+   "id": "parku",
+   "name": "Parku i Qytetit",
+   "kind": "park",
+   "x0": 47,
+   "y0": 11,
+   "x1": 53,
+   "y1": 17,
+   "entrance": [
+    50,
+    14
+   ]
+  },
+  {
+   "id": "carshia",
+   "name": "Çarshia",
+   "kind": "street",
+   "x0": 1,
+   "y0": 18,
+   "x1": 58,
+   "y1": 20,
+   "entrance": [
+    29,
+    19
+   ]
+  }
+ ],
+ "objects": [
+  {
+   "id": "furra_oven",
+   "name": "furrë buke",
+   "x": 10,
+   "y": 24,
+   "area": "furra",
+   "affordances": [
+    "work"
+   ],
+   "props": {}
+  },
+  {
+   "id": "furra_counter",
+   "name": "banaku i furrës",
+   "x": 12,
+   "y": 23,
+   "area": "furra",
+   "affordances": [
+    "buy_bread"
+   ],
+   "props": {
+    "item": "bread"
+   }
+  },
+  {
+   "id": "kafe_counter",
+   "name": "banaku i kafes",
+   "x": 19,
+   "y": 23,
+   "area": "kafiteria",
+   "affordances": [
+    "buy_coffee",
+    "work"
+   ],
+   "props": {
+    "item": "coffee"
+   }
+  },
+  {
+   "id": "kafe_table_a",
+   "name": "tavolina e kafes",
+   "x": 21,
+   "y": 25,
+   "area": "kafiteria",
+   "affordances": [
+    "sit",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "kafe_table_b",
+   "name": "tavolina e dritares",
+   "x": 22,
+   "y": 24,
+   "area": "kafiteria",
+   "affordances": [
+    "sit",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "dyqan_counter",
+   "name": "banaku i dyqanit",
+   "x": 49,
+   "y": 23,
+   "area": "dyqani",
+   "affordances": [
+    "buy_cigarettes",
+    "work"
+   ],
+   "props": {
+    "item": "cigarettes"
+   }
+  },
+  {
+   "id": "amb_desk",
+   "name": "tavolina e motrës",
+   "x": 27,
+   "y": 23,
+   "area": "ambulanca",
+   "affordances": [
+    "work"
+   ],
+   "props": {}
+  },
+  {
+   "id": "amb_bed",
+   "name": "shtrati i pacientit",
+   "x": 27,
+   "y": 25,
+   "area": "ambulanca",
+   "affordances": [
+    "buy_medicine",
+    "treat"
+   ],
+   "props": {
+    "item": "medicine"
+   }
+  },
+  {
+   "id": "shkolla_desk",
+   "name": "katedra",
+   "x": 24,
+   "y": 13,
+   "area": "shkolla",
+   "affordances": [
+    "work"
+   ],
+   "props": {}
+  },
+  {
+   "id": "shkolla_bench",
+   "name": "banka e nxënësve",
+   "x": 22,
+   "y": 15,
+   "area": "shkolla",
+   "affordances": [
+    "study",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "komuna_desk",
+   "name": "zyra e komunës",
+   "x": 39,
+   "y": 13,
+   "area": "komuna",
+   "affordances": [
+    "work"
+   ],
+   "props": {}
+  },
+  {
+   "id": "komuna_ballot",
+   "name": "kutia e votimit",
+   "x": 41,
+   "y": 15,
+   "area": "komuna",
+   "affordances": [
+    "vote"
+   ],
+   "props": {}
+  },
+  {
+   "id": "xhamia_mat",
+   "name": "sexhadeja",
+   "x": 12,
+   "y": 14,
+   "area": "xhamia",
+   "affordances": [
+    "pray"
+   ],
+   "props": {}
+  },
+  {
+   "id": "xhamia_minber",
+   "name": "minberi",
+   "x": 10,
+   "y": 13,
+   "area": "xhamia",
+   "affordances": [
+    "work",
+    "pray"
+   ],
+   "props": {}
+  },
+  {
+   "id": "kisha_altar",
+   "name": "altari",
+   "x": 12,
+   "y": 34,
+   "area": "kisha",
+   "affordances": [
+    "pray"
+   ],
+   "props": {}
+  },
+  {
+   "id": "kisha_pew",
+   "name": "stolat",
+   "x": 10,
+   "y": 35,
+   "area": "kisha",
+   "affordances": [
+    "pray",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "pazar_stall_a",
+   "name": "tezga e perimeve",
+   "x": 36,
+   "y": 23,
+   "area": "pazari",
+   "affordances": [
+    "shop",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "pazar_stall_b",
+   "name": "tezga e mishit",
+   "x": 39,
+   "y": 25,
+   "area": "pazari",
+   "affordances": [
+    "shop",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "pazar_stall_c",
+   "name": "tezga e rrobave",
+   "x": 42,
+   "y": 23,
+   "area": "pazari",
+   "affordances": [
+    "shop",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "parku_bench_a",
+   "name": "stoli i parkut",
+   "x": 49,
+   "y": 14,
+   "area": "parku",
+   "affordances": [
+    "sit",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "parku_bench_b",
+   "name": "stoli nën lis",
+   "x": 51,
+   "y": 16,
+   "area": "parku",
+   "affordances": [
+    "sit",
+    "socialize"
+   ],
+   "props": {}
+  },
+  {
+   "id": "berisha_bed",
+   "name": "shtrati",
+   "x": 10,
+   "y": 4,
+   "area": "home_berisha",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "berisha_table",
+   "name": "tryeza",
+   "x": 12,
+   "y": 5,
+   "area": "home_berisha",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "krasniqi_bed",
+   "name": "shtrati",
+   "x": 19,
+   "y": 4,
+   "area": "home_krasniqi",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "krasniqi_table",
+   "name": "tryeza",
+   "x": 21,
+   "y": 5,
+   "area": "home_krasniqi",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "gashi_bed",
+   "name": "shtrati",
+   "x": 36,
+   "y": 4,
+   "area": "home_gashi",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "gashi_table",
+   "name": "tryeza",
+   "x": 38,
+   "y": 5,
+   "area": "home_gashi",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "morina_bed",
+   "name": "shtrati",
+   "x": 45,
+   "y": 4,
+   "area": "home_morina",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "morina_table",
+   "name": "tryeza",
+   "x": 47,
+   "y": 5,
+   "area": "home_morina",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "hoxha_bed",
+   "name": "shtrati",
+   "x": 21,
+   "y": 33,
+   "area": "home_hoxha",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "hoxha_table",
+   "name": "tryeza",
+   "x": 23,
+   "y": 34,
+   "area": "home_hoxha",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "bytyqi_bed",
+   "name": "shtrati",
+   "x": 36,
+   "y": 33,
+   "area": "home_bytyqi",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "bytyqi_table",
+   "name": "tryeza",
+   "x": 38,
+   "y": 34,
+   "area": "home_bytyqi",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  },
+  {
+   "id": "shala_bed",
+   "name": "shtrati",
+   "x": 45,
+   "y": 33,
+   "area": "home_shala",
+   "affordances": [
+    "sleep"
+   ],
+   "props": {}
+  },
+  {
+   "id": "shala_table",
+   "name": "tryeza",
+   "x": 47,
+   "y": 34,
+   "area": "home_shala",
+   "affordances": [
+    "eat",
+    "sit"
+   ],
+   "props": {}
+  }
+ ]
+}
